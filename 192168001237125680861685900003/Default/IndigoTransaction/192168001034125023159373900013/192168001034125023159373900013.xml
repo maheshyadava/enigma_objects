@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_TRANSACTION>
+        <au_previousVersion><![CDATA[ ]]></au_previousVersion>
+        <au_entityName><![CDATA[EDINotification]]></au_entityName>
+        <au_flowDescriptor><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<AdeptiaPE xmlns:version = "4.7" xmlns:j = "jelly:core" xmlns:abpm = "jelly:com.adeptia.indigo.jelly.IndigoTagLibrary" xmlns:pd = "jelly:com.adeptia.indigo.pd.ProcessDesignerTagLibrary" xmlns = "jelly:com.werken.blissed.jelly.BlissedTagLibrary" >
+	<process name = "mainProcess" var = "mainProcess" start = "startState">
+		<state name = "startState">
+			<activity>
+				<abpm:indigoGlobalVariables>
+					<abpm:params>
+						<abpm:param name = "currentCount" track = "false">
+							[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]
+						</abpm:param>
+						<abpm:param name = "totalGroupCount" track = "false">
+							[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]
+						</abpm:param>
+					</abpm:params>
+				</abpm:indigoGlobalVariables>
+				<abpm:indigoGeneralVariables>
+					<abpm:params>
+					</abpm:params>
+				</abpm:indigoGeneralVariables>
+				<abpm:indigoActivityVariables>
+					<abpm:params>
+					</abpm:params>
+				</abpm:indigoActivityVariables>
+				<abpm:installGlobalExceptionHandlers>
+					<abpm:exceptionHandlers>
+					</abpm:exceptionHandlers>
+				</abpm:installGlobalExceptionHandlers>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-5118326">
+			<activity>
+				<abpm:activity type="CustomPlugin" id="192168001034125067872314900004" name="NACKReaderForInterchange" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="streamNames">default</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">false</abpm:param>
+						<abpm:param name="source">null</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "330.0" y = "247.0" width = "106.0" height = "40.0" streamNames = "name=default,explicit=true,error=false,target=state-BPMN:TASK:BASIC_TASK-21506321#state-BPMN:TASK:BASIC_TASK-23993594#"  owner = "FlowObject" textLabel = "NACK Reader For Interchange" color = "172,227,236" printSequence = "1"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-5118326" destination = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330" xpoints = "383,383" ypoints = "297,301" hasManualPlacement = "false" arcData = "" arrowPoints = "375,383,375,375|307,311,315,307" order = "0" startPoint = "383,287" endPoint = "383,311" direction = "3,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DIRECTIONAL_ASSOCIATION_FLOW" source = "state-BPMN:TASK:BASIC_TASK-5118326" destination = "state-BPMN:ARTIFACT:DATA_ARTIFACT-21506327" xpoints = "446,466,466,466,466,300,300,300,300,320" ypoints = "273,273,273,315,315,315,315,358,358,358" hasManualPlacement = "false" arcData = "466,268,10,10,180,-90|461,305,10,10,270,90|300,310,10,10,180,-90|295,348,10,10,270,90" arrowPoints = "322,330,322,322|354,358,362,354" startPoint = "436,273" endPoint = "330,358" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330">
+			<activity>
+				<pd:gateway type = "EXCLUSIVE_DATA_BASED" />
+				<pd:graphics x = "363.0" y = "311.0" width = "40.0" height = "40.0" owner = "FlowObject" textLabel = "" color = "255,153,0" printSequence = "2"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330" destination = "state-BPMN:TASK:BASIC_TASK-5118332" xpoints = "383,383" ypoints = "361,367" hasManualPlacement = "false" arcData = "" arrowPoints = "375,383,375,375|373,377,381,373" order = "0" startPoint = "383,351" endPoint = "383,377" direction = "3,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DEFAULT_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330" destination = "state-BPMN:TASK:BASIC_TASK-21506321" xpoints = "413,425" ypoints = "331,331" hasManualPlacement = "false" arcData = "" arrowPoints = "427,435,427,427|327,331,335,327" order = "1" startPoint = "403,331" endPoint = "435,331" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-5118332">
+			<activity>
+				<abpm:put-context-var name="PutContextVarTag2" key="mailSubject" value="$$interChangeMailsubject$$ $$postSubject$$" activityName="EDIInterchangeErrorNotification"/>
+				<pd:graphics x = "339.0" y = "377.0" width = "89.0" height = "40.0" owner = "FlowObject" textLabel = "Mail Setup" color = "172,227,236" printSequence = "3"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-5118332" destination = "state-BPMN:TASK:BASIC_TASK-23993594" xpoints = "383,383" ypoints = "427,448" hasManualPlacement = "false" arcData = "" arrowPoints = "375,383,375,375|454,458,462,454" order = "0" startPoint = "383,417" endPoint = "383,458" direction = "3,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:END_EVENT-5118337">
+			<activity>
+				<pd:event type = "end" subType = "none" />
+				<pd:graphics x = "641.0" y = "387.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "End Event" color = "251,103,87" printSequence = "4"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:ARTIFACT:DATA_ARTIFACT-7312513">
+			<activity>
+				<pd:artifact type = "DATA_ARTIFACT" />
+				<pd:dataObject dataObjectName = "" representsStream = "true" streamName = "state-BPMN:TASK:BASIC_TASK-22498188[NotificationGenerater[message]]" />
+				<pd:graphics x = "536.0" y = "0.0" width = "16.0" height = "22.0" owner = "FlowObject" textLabel = "message" color = "185,92,0" printSequence = "5"/>
+				<pd:graphics linkType = "DIRECTIONAL_ASSOCIATION_FLOW" source = "state-BPMN:ARTIFACT:DATA_ARTIFACT-7312513" destination = "state-BPMN:TASK:BASIC_TASK-22498191" xpoints = "562,595,595,595,595,628" ypoints = "11,11,11,95,95,95" hasManualPlacement = "false" arcData = "595,6,10,10,180,-90|590,85,10,10,270,90" arrowPoints = "631,639,631,631|91,95,99,91" startPoint = "552,11" endPoint = "639,95" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518">
+			<activity>
+				<pd:gateway type = "EXCLUSIVE_DATA_BASED" />
+				<pd:graphics x = "539.0" y = "187.0" width = "40.0" height = "40.0" owner = "FlowObject" textLabel = "" color = "255,153,0" printSequence = "6"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518" destination = "state-BPMN:TASK:BASIC_TASK-22498188" xpoints = "529,407,407,407" ypoints = "207,207,207,132" hasManualPlacement = "false" arcData = "407,202,10,10,180,-90" arrowPoints = "399,407,399,399|118,122,126,118" order = "0" startPoint = "539,207" endPoint = "407,122" direction = "4,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DEFAULT_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518" destination = "state-BPMN:TASK:BASIC_TASK-5118326" xpoints = "559,559,559,446" ypoints = "237,260,260,260" hasManualPlacement = "false" arcData = "554,250,10,10,270,90" arrowPoints = "444,436,444,444|256,260,264,256" order = "1" startPoint = "559,227" endPoint = "436,260" direction = "3,8" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571">
+			<activity>
+				<pd:gateway type = "EXCLUSIVE_DATA_BASED" />
+				<pd:graphics x = "240.0" y = "81.0" width = "40.0" height = "40.0" owner = "FlowObject" textLabel = "" color = "255,153,0" printSequence = "7"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571" destination = "state-BPMN:TASK:BASIC_TASK-22498188" xpoints = "290,351" ypoints = "102,102" hasManualPlacement = "false" arcData = "" arrowPoints = "353,361,353,353|98,102,106,98" order = "0" startPoint = "280,102" endPoint = "361,102" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DEFAULT_FLOW" source = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571" destination = "state-BPMN:TASK:BASIC_TASK-21506320" xpoints = "260,260" ypoints = "131,171" hasManualPlacement = "false" arcData = "" arrowPoints = "252,260,252,252|177,181,185,177" order = "1" startPoint = "260,121" endPoint = "260,181" direction = "3,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-21506320">
+			<activity>
+				<abpm:activity type="ContextTarget" id="" name="ContextTarget" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="parameterName">aaa</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="documentRepository">false</abpm:param>
+						<abpm:param name="source">NACKReader[Data]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "223.0" y = "181.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "Consumer 1" color = "172,227,236" printSequence = "8"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-21506320" destination = "state-BPMN:TASK:BASIC_TASK-5118326" xpoints = "260,260,260,320" ypoints = "231,267,267,267" hasManualPlacement = "false" arcData = "255,257,10,10,270,90" arrowPoints = "322,330,322,322|263,267,271,263" order = "0" startPoint = "260,221" endPoint = "330,267" direction = "3,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-21506321">
+			<activity>
+				<abpm:activity type="ContextTarget" id="" name="Consumer 2" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="parameterName">a</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="documentRepository">false</abpm:param>
+						<abpm:param name="source">NACKReaderForInterchange[default]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "435.0" y = "318.0" width = "75.0" height = "40.0" owner = "FlowObject" textLabel = "Consumer 2" color = "172,227,236" printSequence = "9"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-21506321" destination = "state-BPMN:EVENT:END_EVENT-5118337" xpoints = "520,656,656,656" ypoints = "338,338,338,377" hasManualPlacement = "false" arcData = "656,333,10,10,180,-90" arrowPoints = "648,656,648,648|383,387,391,383" order = "0" startPoint = "510,338" endPoint = "656,387" direction = "2,5" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:ARTIFACT:DATA_ARTIFACT-21506327">
+			<activity>
+				<pd:artifact type = "DATA_ARTIFACT" />
+				<pd:dataObject dataObjectName = "" representsStream = "true" streamName = "state-BPMN:TASK:BASIC_TASK-5118326[NACKReaderForInterchange[default]]" />
+				<pd:graphics x = "330.0" y = "347.0" width = "16.0" height = "22.0" owner = "FlowObject" textLabel = "default" color = "185,92,0" printSequence = "10"/>
+				<pd:graphics linkType = "DIRECTIONAL_ASSOCIATION_FLOW" source = "state-BPMN:ARTIFACT:DATA_ARTIFACT-21506327" destination = "state-BPMN:TASK:BASIC_TASK-21506321" xpoints = "356,390,390,390,390,424" ypoints = "361,361,361,344,344,344" hasManualPlacement = "false" arcData = "390,356,10,10,180,-90|385,334,10,10,270,90" arrowPoints = "427,435,427,427|340,344,348,340" startPoint = "346,361" endPoint = "435,344" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DIRECTIONAL_ASSOCIATION_FLOW" source = "state-BPMN:ARTIFACT:DATA_ARTIFACT-21506327" destination = "state-BPMN:TASK:BASIC_TASK-23993594" xpoints = "356,376,376,376,376,302,302,302,302,322" ypoints = "354,354,354,416,416,416,416,478,478,478" hasManualPlacement = "false" arcData = "376,349,10,10,180,-90|371,406,10,10,270,90|302,411,10,10,180,-90|297,468,10,10,270,90" arrowPoints = "324,332,324,324|474,478,482,474" startPoint = "346,354" endPoint = "332,478" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:EVENT:START_EVENT-22498185">
+			<activity>
+				<pd:event type = "start" subType = "none" />
+				<pd:graphics x = "36.0" y = "87.0" width = "30.0" height = "30.0" owner = "FlowObject" textLabel = "Start Event" color = "0,204,15" printSequence = "11"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:EVENT:START_EVENT-22498185" destination = "state-BPMN:TASK:BASIC_TASK-22498208" xpoints = "76,111" ypoints = "102,102" hasManualPlacement = "false" arcData = "" arrowPoints = "113,121,113,113|98,102,106,98" order = "0" startPoint = "66,102" endPoint = "121,102" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-22498188">
+			<activity>
+				<abpm:activity type="CustomPlugin" id="192168001034125023077580600006" name="NotificationGenerater" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="streamNames">message</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">true</abpm:param>
+						<abpm:param name="source">NACKReader[Data]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "361.0" y = "83.0" width = "92.0" height = "40.0" streamNames = "name=message,explicit=true,error=false,target=state-BPMN:TASK:BASIC_TASK-22498191#"  owner = "FlowObject" textLabel = "Notification Generater" color = "172,227,236" printSequence = "12"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-22498188" destination = "state-BPMN:TASK:BASIC_TASK-22498190" xpoints = "463,490" ypoints = "108,108" hasManualPlacement = "false" arcData = "" arrowPoints = "492,500,492,492|104,108,112,104" order = "0" startPoint = "453,108" endPoint = "500,108" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:graphics linkType = "DIRECTIONAL_ASSOCIATION_FLOW" source = "state-BPMN:TASK:BASIC_TASK-22498188" destination = "state-BPMN:ARTIFACT:DATA_ARTIFACT-7312513" xpoints = "463,494,494,494,494,525" ypoints = "95,95,95,11,11,11" hasManualPlacement = "false" arcData = "494,90,10,10,180,-90|489,1,10,10,270,90" arrowPoints = "528,536,528,528|7,11,15,7" startPoint = "453,95" endPoint = "536,11" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-22498190">
+			<activity>
+				<abpm:put-context-var name="PutContextVarTag1" key="receiverEmailId,mailSubject" value="$$emailID$$Error in group with Record ID $$groupID$$ $$postSubject$$" activityName="EDINACKNotification,EDINACKNotification" length="11,57"/>
+				<pd:graphics x = "500.0" y = "88.0" width = "92.0" height = "40.0" owner = "FlowObject" textLabel = "Mail Setup" color = "172,227,236" printSequence = "13"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-22498190" destination = "state-BPMN:TASK:BASIC_TASK-22498191" xpoints = "602,629" ypoints = "108,108" hasManualPlacement = "false" arcData = "" arrowPoints = "631,639,631,631|104,108,112,104" order = "0" startPoint = "592,108" endPoint = "639,108" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-22498191">
+			<activity>
+				<abpm:activity type="MailTarget" id="192168001034125023153179200012" name="EDINACKNotification" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="source">NotificationGenerater[message]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "639.0" y = "82.0" width = "107.0" height = "40.0" owner = "FlowObject" textLabel = "EDI NACK Notification" color = "172,227,236" printSequence = "14"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-22498191" destination = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518" xpoints = "692,692,692,589" ypoints = "132,207,207,207" hasManualPlacement = "false" arcData = "687,197,10,10,270,90" arrowPoints = "587,579,587,587|203,207,211,203" order = "0" startPoint = "692,122" endPoint = "579,207" direction = "3,8" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-22498208">
+			<activity>
+				<abpm:activity type="CustomPlugin" id="192168001034125023068237500004" name="NACKReader" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="characterSetEncoding">None</abpm:param>
+						<abpm:param name="streamNames">Data</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="Consume Stream">false</abpm:param>
+						<abpm:param name="source">null</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "121.0" y = "82.0" width = "75.0" height = "40.0" streamNames = "name=Data,explicit=false,error=false,target=state-BPMN:TASK:BASIC_TASK-21506320#state-BPMN:TASK:BASIC_TASK-22498188#"  owner = "FlowObject" textLabel = "NACK Reader" color = "172,227,236" printSequence = "15"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-22498208" destination = "state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571" xpoints = "206,230" ypoints = "102,102" hasManualPlacement = "false" arcData = "" arrowPoints = "232,240,232,232|98,102,106,98" order = "0" startPoint = "196,102" endPoint = "240,102" direction = "2,6" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<state name = "state-BPMN:TASK:BASIC_TASK-23993594">
+			<activity>
+				<abpm:activity type="MailTarget" id="192168001034125068528492800002" name="EDIInterchangeErrorNotification" async="false"  >
+					<abpm:params>
+						<abpm:param name="restartWaitTime">60</abpm:param>
+						<abpm:param name="restartTriesCount">0</abpm:param>
+						<abpm:param name="source">NACKReaderForInterchange[default]</abpm:param>
+					</abpm:params>
+				</abpm:activity>
+				<pd:graphics x = "332.0" y = "458.0" width = "100.0" height = "40.0" owner = "FlowObject" textLabel = "Interchange Error Notification" color = "172,227,236" printSequence = "16"/>
+				<pd:graphics linkType = "UNCONTROLLED_FLOW" source = "state-BPMN:TASK:BASIC_TASK-23993594" destination = "state-BPMN:EVENT:END_EVENT-5118337" xpoints = "442,656,656,656" ypoints = "478,478,478,427" hasManualPlacement = "false" arcData = "656,473,10,10,180,-90" arrowPoints = "648,656,648,648|413,417,421,413" order = "0" startPoint = "432,478" endPoint = "656,417" direction = "2,7" linkColor = "0,0,0" owner = "Transition" textLabel = "" textX = "0" textY = "0" textLabelWidth = "0.0" textLabelHeight = "0.0" printSequence = "-1"/>
+				<pd:comments/>
+			</activity>
+		</state>
+		<transition from="startState" to="state-BPMN:EVENT:START_EVENT-22498185"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-5118332" to="state-BPMN:TASK:BASIC_TASK-23993594"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-5118326" to="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-23993594" to="state-BPMN:EVENT:END_EVENT-5118337"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-22498208" to="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-22498191" to="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-22498190" to="state-BPMN:TASK:BASIC_TASK-22498191"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-22498188" to="state-BPMN:TASK:BASIC_TASK-22498190"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-21506321" to="state-BPMN:EVENT:END_EVENT-5118337"/>
+		<transition from="state-BPMN:TASK:BASIC_TASK-21506320" to="state-BPMN:TASK:BASIC_TASK-5118326"/>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571" to="state-BPMN:TASK:BASIC_TASK-22498188" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						API:com.adeptia.indigo.edi.utils.EDIGatewayUtils.isDataAvailable
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312571" to="state-BPMN:TASK:BASIC_TASK-21506320" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						return true ;
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518" to="state-BPMN:TASK:BASIC_TASK-22498188" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						API:com.adeptia.indigo.edi.utils.EDIGatewayUtils.isTotalGroupCountEqualsToCurrentCount
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-7312518" to="state-BPMN:TASK:BASIC_TASK-5118326" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						return true ;
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330" to="state-BPMN:TASK:BASIC_TASK-5118332" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						API:com.adeptia.indigo.edi.utils.EDIGatewayUtils.isDataAvailableForInterchange
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:GATEWAY:XOR_DATA_GATEWAY-5118330" to="state-BPMN:TASK:BASIC_TASK-21506321" >
+			<guard>
+				<abpm:scripted-guard >
+					[ABPM_._ESCAPE_._CDATA_._START]
+						return true ;
+					[ABPM_._ESCAPE_._CDATA_._END]
+				</abpm:scripted-guard>
+			</guard>
+		</transition>
+		<transition from="state-BPMN:EVENT:START_EVENT-22498185" to="state-BPMN:TASK:BASIC_TASK-22498208"/>
+	</process>
+</AdeptiaPE>
+]]></au_flowDescriptor>
+        <au_retainVarXml><![CDATA[false]]></au_retainVarXml>
+        <au_logRetentionAction><![CDATA[S]]></au_logRetentionAction>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_description><![CDATA[Notification for Error in Translation]]></au_description>
+        <au_activeFlag><![CDATA[true]]></au_activeFlag>
+        <au_version><![CDATA[1]]></au_version>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001237125680875303100006]]></au_modifiedBy>
+        <au_realTimeConfiguration><![CDATA[false]]></au_realTimeConfiguration>
+        <au_loggingLevel><![CDATA[ERROR]]></au_loggingLevel>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_priority><![CDATA[NORMAL]]></au_priority>
+        <au_recoverable><![CDATA[false]]></au_recoverable>
+        <au_OldFlowDescriptor><![CDATA[null]]></au_OldFlowDescriptor>
+        <au_childFlows><![CDATA[]]></au_childFlows>
+        <au_creationDate><![CDATA[2009-08-14 12:03:13.0]]></au_creationDate>
+        <au_userOwner><![CDATA[IndigoUser:192168001237125680875303100006]]></au_userOwner>
+        <au_advanced><![CDATA[true]]></au_advanced>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_modifiedDate><![CDATA[2017-12-20 09:52:36.0]]></au_modifiedDate>
+        <au_trackVariables><![CDATA[<?xml version="1.0"?><Variables></Variables>]]></au_trackVariables>
+        <au_webPdXml><![CDATA[null]]></au_webPdXml>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001237125680861685900003]]></au_groupOwner>
+        <au_templateName><![CDATA[Process Designer]]></au_templateName>
+        <au_id><![CDATA[192168001034125023159373900013]]></au_id>
+        <au_dataEncryptionAtRest><![CDATA[no]]></au_dataEncryptionAtRest>
+        <au_connectDashboardLogging><![CDATA[false]]></au_connectDashboardLogging>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_repositoryAction><![CDATA[E]]></au_repositoryAction>
+    </AU_TRANSACTION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_flowDescriptor" type="12"/>
+        <column name="au_activeFlag" type="-7"/>
+        <column name="au_templateName" type="12"/>
+        <column name="au_advanced" type="-7"/>
+        <column name="au_loggingLevel" type="12"/>
+        <column name="au_priority" type="12"/>
+        <column name="au_repositoryAction" type="12"/>
+        <column name="au_logRetentionAction" type="12"/>
+        <column name="au_childFlows" type="12"/>
+        <column name="au_trackVariables" type="12"/>
+        <column name="au_retainVarXml" type="-7"/>
+        <column name="au_recoverable" type="-7"/>
+        <column name="au_realTimeConfiguration" type="-7"/>
+        <column name="au_webPdXml" type="12"/>
+        <column name="au_OldFlowDescriptor" type="12"/>
+        <column name="au_dataEncryptionAtRest" type="12"/>
+        <column name="au_connectDashboardLogging" type="-7"/>
+    </columnInfo>
+</data>
