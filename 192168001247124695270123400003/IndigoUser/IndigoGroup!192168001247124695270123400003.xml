@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_GROUPS>
-        <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_comment><![CDATA[ ]]></au_comment>
-        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_entityName><![CDATA[EDIDemo]]></au_entityName>
-        <au_comments><![CDATA[null]]></au_comments>
-        <au_webDavFolder><![CDATA[WebDavFolder:192168001247124695270123400002]]></au_webDavFolder>
-        <au_modifiedDate><![CDATA[2009-07-07 13:15:09.0]]></au_modifiedDate>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
-        <au_description><![CDATA[This group contains sample EDI Trading partner setup.]]></au_description>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_groupInfo><![CDATA[RPnIqG11tnosusyxYhBLpyVm6LfCYE4kD4Vjc8Dipp8uXrYjWXJpc9Se9yoHuFBG]]></au_groupInfo>
         <au_creationDate><![CDATA[2009-07-07 13:15:01.0]]></au_creationDate>
-        <au_revision><![CDATA[e83472a74dd7b6f45c3e4b7e9a128d0481fea225]]></au_revision>
-        <au_version><![CDATA[1]]></au_version>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
-        <au_synchronized><![CDATA[true]]></au_synchronized>
+        <au_entityName><![CDATA[EDIDemo]]></au_entityName>
+        <au_webDavFolder><![CDATA[WebDavFolder:192168001247124695270123400002]]></au_webDavFolder>
+        <au_revision><![CDATA[6c5e522bf6c522600bd37c656fdb7771d8bffa46]]></au_revision>
         <au_title><![CDATA[ ]]></au_title>
-        <au_id><![CDATA[192168001247124695270123400003]]></au_id>
         <au_previousVersion><![CDATA[ ]]></au_previousVersion>
+        <au_description><![CDATA[This group contains sample EDI Trading partner setup.]]></au_description>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_groupInfo><![CDATA[RPnIqG11tnosusyxYhBLpyVm6LfCYE4kD4Vjc8Dipp8uXrYjWXJpc9Se9yoHuFBG]]></au_groupInfo>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
+        <au_version><![CDATA[1]]></au_version>
+        <au_synchronized><![CDATA[true]]></au_synchronized>
+        <au_comment><![CDATA[ ]]></au_comment>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_id><![CDATA[192168001247124695270123400003]]></au_id>
+        <au_modifiedDate><![CDATA[2009-07-07 13:15:09.0]]></au_modifiedDate>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
     </AU_GROUPS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
