@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_SCRIPTEDSERVICE>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001077140559961435500002]]></au_groupOwner>
+        <au_creationDate><![CDATA[2015-01-30 15:34:41.0]]></au_creationDate>
+        <au_showHideFlag><![CDATA[false]]></au_showHideFlag>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_entityName><![CDATA[AC_CP_CheckSourceSchemaOutputSize]]></au_entityName>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_script><![CDATA[import com.adeptia.connect2.runtime.RuntimeConstants;
+import com.adeptia.connect2.runtime.error.ConnectErrorCode;
+import com.adeptia.indigo.exception.SystemException;
+import com.adeptia.connect2.runtime.RuntimeUtils;
+ 
+Object recordsProcessedAtSource = null;
+Object errorRecordsAtSource = null;
+int errorRecords = 0;
+int recordsProcessed = 0;
+boolean isXMLSchema = true;
+boolean isJSONSchema = true;
+boolean isEDISchema = ((String)context.get(RuntimeConstants.SOURCE_SCHEMA_TYPEDID)).startsWith(RuntimeConstants.EDI_SCHEMA_TYPE);
+if(RuntimeUtils.isDatabaseAppType(context.get(RuntimeConstants.SOURCE_APP_TYPE), context.get(RuntimeConstants.SOURCE_APP_PROTOCOL))){
+isXMLSchema = false;
+isJSONSchema = false;
+recordsProcessedAtSource = context.get("Service."+ context.get(RuntimeConstants.SOURCE_ACTIVITY)+ ".OperationCount");
+errorRecordsAtSource = context.get("Service."+ context.get(RuntimeConstants.SOURCE_ACTIVITY)+ ".ErrorOperationCount");
+}else if(!((String)context.get(RuntimeConstants.SOURCE_SCHEMA_TYPEDID)).startsWith(RuntimeConstants.XML_SCHEMA_TYPE) && !((String)context.get(RuntimeConstants.SOURCE_SCHEMA_TYPEDID)).startsWith(RuntimeConstants.JSON_SCHEMA_TYPE)){
+isXMLSchema = false;
+isJSONSchema = false;
+recordsProcessedAtSource = context.get("Service.AC_ExcelSchema_Source.OperationCount");
+errorRecordsAtSource = context.get("Service.AC_ExcelSchema_Source.ErrorOperationCount");
+}
+if(!isXMLSchema && !isJSONSchema){
+context.put(RuntimeConstants.ERROR_RECORDS_AT_SOURCE, errorRecordsAtSource);
+context.put(RuntimeConstants.VALID_RECORDS_AT_SOURCE, recordsProcessedAtSource);
+if(errorRecordsAtSource != null){
+errorRecords = Integer.valueOf(errorRecordsAtSource);
+if(errorRecords > 0)
+throw new SystemException("Source File Layout output is invalid and has "+errorRecords+" error records",ConnectErrorCode.INVALID_SOURCE_SCHEMA);
+}
+if(recordsProcessedAtSource == null)
+throw new SystemException("Source File Layout output is blank",ConnectErrorCode.INVALID_SOURCE_SCHEMA);
+recordsProcessed = Integer.valueOf(recordsProcessedAtSource);
+if(recordsProcessed == 0&&!isEDISchema){
+throw new SystemException("Source File Layout output is blank",ConnectErrorCode.INVALID_SOURCE_SCHEMA);
+}
+}]]></au_script>
+        <au_modifiedDate><![CDATA[2018-01-10 17:26:05.0]]></au_modifiedDate>
+        <au_variablesXML><![CDATA[<variables>
+</variables>
+]]></au_variablesXML>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_interpreterType><![CDATA[0]]></au_interpreterType>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_id><![CDATA[192168001083142261228147300004]]></au_id>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_version><![CDATA[1]]></au_version>
+        <au_encodingUsed><![CDATA[ISO-8859-1]]></au_encodingUsed>
+        <au_description><![CDATA[It will validate the output of source schema]]></au_description>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+    </AU_SCRIPTEDSERVICE>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_script" type="12"/>
+        <column name="au_showHideFlag" type="-7"/>
+        <column name="au_variablesXML" type="12"/>
+        <column name="au_encodingUsed" type="12"/>
+        <column name="au_interpreterType" type="4"/>
+    </columnInfo>
+</data>
