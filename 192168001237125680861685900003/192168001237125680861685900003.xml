@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_GROUPS>
-        <au_groupInfo><![CDATA[2NhnzNk3TQjPYViwMqe/AmQopC8YFt1zCP+txN/xjQneeD5ibo1U2p/1xeQAAg8N]]></au_groupInfo>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_comments><![CDATA[null]]></au_comments>
-        <au_previousVersion><![CDATA[]]></au_previousVersion>
         <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
-        <au_description><![CDATA[This group contains EDI Solution.]]></au_description>
-        <au_webDavFolder><![CDATA[WebDavFolder:192168001034125846186012300007]]></au_webDavFolder>
-        <au_creationDate><![CDATA[2009-10-29 15:00:16.0]]></au_creationDate>
-        <au_version><![CDATA[1]]></au_version>
-        <au_id><![CDATA[192168001237125680861685900003]]></au_id>
-        <au_modifiedDate><![CDATA[2009-11-17 18:14:27.0]]></au_modifiedDate>
-        <au_revision><![CDATA[5e5750a44687f757077473b883bbf10044359f43]]></au_revision>
-        <au_entityName><![CDATA[EDISolutionGroup]]></au_entityName>
-        <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_synchronized><![CDATA[true]]></au_synchronized>
-        <au_title><![CDATA[EDISolutionGroup]]></au_title>
         <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_comment><![CDATA[EDISolutionGroup]]></au_comment>
+        <au_creationDate><![CDATA[2009-10-29 15:00:16.0]]></au_creationDate>
         <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_modifiedDate><![CDATA[2009-11-17 18:14:27.0]]></au_modifiedDate>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_groupInfo><![CDATA[2NhnzNk3TQjPYViwMqe/AmQopC8YFt1zCP+txN/xjQneeD5ibo1U2p/1xeQAAg8N]]></au_groupInfo>
+        <au_comment><![CDATA[EDISolutionGroup]]></au_comment>
+        <au_webDavFolder><![CDATA[WebDavFolder:192168001034125846186012300007]]></au_webDavFolder>
+        <au_revision><![CDATA[9e43b382d58b4a58bae1ae454343472d46af2888]]></au_revision>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_entityName><![CDATA[EDISolutionGroup]]></au_entityName>
+        <au_description><![CDATA[This group contains EDI Solution.]]></au_description>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_title><![CDATA[EDISolutionGroup]]></au_title>
+        <au_id><![CDATA[192168001237125680861685900003]]></au_id>
+        <au_version><![CDATA[1]]></au_version>
+        <au_synchronized><![CDATA[true]]></au_synchronized>
     </AU_GROUPS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
