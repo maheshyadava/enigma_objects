@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_TRANSACTION>
+        <au_version><![CDATA[1]]></au_version>
+        <au_creationDate><![CDATA[2019-11-08 11:05:14.0]]></au_creationDate>
+        <au_description><![CDATA[Main Adeptia Connect Process Flow for Pass-Thru]]></au_description>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001077140559961435500002]]></au_groupOwner>
+        <au_recoverable><![CDATA[true]]></au_recoverable>
+        <au_trackVariables><![CDATA[<?xml version="1.0"?><Variables></Variables>]]></au_trackVariables>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_entityName><![CDATA[AC_2_0_PASS_THRU_PF]]></au_entityName>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_flowDescriptor><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<AdeptiaPE xmlns="jelly:com.werken.blissed.jelly.BlissedTagLibrary" xmlns:version="4.7" xmlns:j="jelly:core" xmlns:abpm="jelly:com.adeptia.indigo.jelly.IndigoTagLibrary" xmlns:pd="jelly:com.adeptia.indigo.pd.ProcessDesignerTagLibrary">
+   <process name="mainProcess" start="startState" var="mainProcess">
+      <state name="startState">
+         <activity>
+            <abpm:installGlobalExceptionHandlers>
+               <abpm:exceptionHandlers>
+                  <abpm:ServiceException>[ABPM_._ESCAPE_._CDATA_._START]import org.apache.commons.lang.exception.ExceptionUtils;
+Throwable rootCause = ExceptionUtils.getRootCause(exception);
+String exceptionMessage = null;
+if(rootCause == null)
+exceptionMessage = exception.getMessage();
+else
+exceptionMessage = rootCause.getMessage();
+
+context.put("subprocess_code", "ERROR_IN_CHILD_FLOW");
+context.put("subprocess_text", exceptionMessage);[ABPM_._ESCAPE_._CDATA_._END]</abpm:ServiceException>
+               </abpm:exceptionHandlers>
+            </abpm:installGlobalExceptionHandlers>
+         </activity>
+      </state>
+      <state name="Task_1e4f1op">
+         <activity>
+            <abpm:activity name="Source" async="false" id="192168000104138587630693700004" jtaEnlist="false" signal="SignalComplete" type="FtpSource">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]default[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="eventContextEnabled">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_0lrkh7s">
+         <activity>
+            <abpm:activity name="RepeaterServiceSource" async="false" id="" signal="SignalComplete" type="RepeaterService">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]Source[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ByPassDecryption:SrcStream[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_0tnexno">
+         <activity>
+            <abpm:activity name="Data_Decryption" async="false" id="192168001073149146128339700007" signal="SignalComplete" type="DataSecurity">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceSource[SrcStream][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Data Decryption[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1fthprw">
+         <activity>
+            <abpm:activity name="StreamSelectorSource" async="false" id="" signal="SignalComplete" type="StreamSelectorService">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceSource[ByPassDecryption]^Data_Decryption[Data Decryption][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Stream Selector[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1h1xpz3">
+         <activity>
+            <abpm:activity name="RepeaterServiceTarget" async="false" id="" signal="SignalComplete" type="RepeaterService">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorSource[Stream Selector][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ByPassEncryption:TarStream[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_19jajms">
+         <activity>
+            <abpm:activity name="Data_Encryption" async="false" id="192168001073149146137443800009" signal="SignalComplete" type="DataSecurity">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget[TarStream][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Data Encryption[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_0sass3o">
+         <activity>
+            <abpm:activity name="StreamSelectorTarget" async="false" id="" signal="SignalComplete" type="StreamSelectorService">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget[ByPassEncryption]^Data_Encryption[Data Encryption][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]default[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1q18wmu">
+         <activity>
+            <abpm:activity name="Destination" async="false" id="192168000104138587630544800002" signal="SignalComplete" type="FtpTarget">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[NormalTargetStream][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1cv81gz">
+         <activity>
+            <abpm:activity name="AC_CP_Call_Post_Process_For_Custom" async="false" id="192168001115157614930007800013" signal="SignalComplete" type="CustomPlugin">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[PostProcessStream][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]ISO-8859-1[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="Consume Stream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1f7abue">
+         <activity>
+            <abpm:call name="AC_Call_Post_Process_Action" executeOnSameNode="true" flowId="" resultCtxVarName="childFlowExecutionStatus"/>
+         </activity>
+      </state>
+      <state name="Task_141s4cm">
+         <activity>
+            <abpm:activity name="AC_CP_AbortParentFlow" async="false" id="192168001180149854474333600004" signal="SignalComplete" type="CustomPlugin">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]null[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]ISO-8859-1[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="Consume Stream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_1g1x3xa">
+         <activity>
+            <abpm:activity name="RepeaterServiceTarget2" async="false" id="" signal="SignalComplete" type="RepeaterService">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorTarget[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]NormalTargetStream:PostProcessStream:ContextTargetStream[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="Task_03py4il">
+         <activity>
+            <abpm:activity name="ContextTarget" async="false" id="" signal="SignalComplete" type="ContextTarget">
+               <abpm:params>
+                  <abpm:param name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[ContextTargetStream][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]None[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="documentRepoFileName">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="parameterName">[ABPM_._ESCAPE_._CDATA_._START]response[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="documentRepository">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+                  <abpm:param name="versionControl">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</abpm:param>
+               </abpm:params>
+            </abpm:activity>
+         </activity>
+      </state>
+      <state name="StartEvent_1">
+         <activity>
+            <pd:event type="start" subType="none"/>
+         </activity>
+      </state>
+      <state name="EndEvent_1rbk3yp">
+         <activity>
+            <pd:event type="end" subType="none"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_0v0csfo">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_1vpmd4a">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_17qinbs">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_1osm2ne">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_0czputq">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <state name="ExclusiveGateway_04aqnkj">
+         <activity>
+            <pd:gateway type="XOR_DATA_GATEWAY"/>
+         </activity>
+      </state>
+      <transition from="startState" to="StartEvent_1"/>
+      <transition from="StartEvent_1" to="Task_1e4f1op"/>
+      <transition from="Task_1e4f1op" to="Task_0lrkh7s"/>
+      <transition from="Task_0lrkh7s" to="ExclusiveGateway_0v0csfo"/>
+      <transition from="Task_0tnexno" to="Task_1fthprw"/>
+      <transition from="Task_1fthprw" to="Task_1h1xpz3"/>
+      <transition from="Task_1h1xpz3" to="ExclusiveGateway_1vpmd4a"/>
+      <transition from="Task_19jajms" to="Task_0sass3o"/>
+      <transition from="Task_0sass3o" to="Task_1g1x3xa"/>
+      <transition from="Task_1cv81gz" to="Task_1f7abue"/>
+      <transition from="Task_1f7abue" to="ExclusiveGateway_1osm2ne"/>
+      <transition from="Task_141s4cm" to="EndEvent_1rbk3yp"/>
+      <transition from="Task_1g1x3xa" to="ExclusiveGateway_17qinbs"/>
+      <transition from="Task_1q18wmu" to="ExclusiveGateway_0czputq"/>
+      <transition from="Task_03py4il" to="ExclusiveGateway_04aqnkj"/>
+      <transition from="ExclusiveGateway_04aqnkj" to="EndEvent_1rbk3yp">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+return RuntimeUtils.validateActivitiesOutput(context,false,false);[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_04aqnkj" to="EndEvent_1rbk3yp">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_0czputq" to="Task_03py4il">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+return RuntimeUtils.isOutputContextTarget(context);[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_0czputq" to="ExclusiveGateway_04aqnkj">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_1osm2ne" to="Task_141s4cm">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return RuntimeUtils.isChildFlowAborted(context);[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_1osm2ne" to="EndEvent_1rbk3yp">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_17qinbs" to="Task_1cv81gz">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeConstants;
+
+String targetAppType = (String) context
+				.get(RuntimeConstants.TARGET_APP_TYPE);
+return RuntimeConstants.POST_PROCESS_APP.equalsIgnoreCase(targetAppType);[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_17qinbs" to="Task_1q18wmu">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_0v0csfo" to="Task_0tnexno">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return !RuntimeUtils.isByPassActivity(context,"Data_Decryption");[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_0v0csfo" to="Task_1fthprw">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_1vpmd4a" to="Task_19jajms">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return !RuntimeUtils.isByPassActivity(context,"Data_Encryption");[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+      <transition from="ExclusiveGateway_1vpmd4a" to="Task_0sass3o">
+         <guard>
+            <abpm:scripted-guard>[ABPM_._ESCAPE_._CDATA_._START]return true;[ABPM_._ESCAPE_._CDATA_._END]</abpm:scripted-guard>
+         </guard>
+      </transition>
+   </process>
+</AdeptiaPE>
+]]></au_flowDescriptor>
+        <au_childFlows><![CDATA[]]></au_childFlows>
+        <au_retainVarXml><![CDATA[false]]></au_retainVarXml>
+        <au_templateName><![CDATA[Process Designer]]></au_templateName>
+        <au_webPdXml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:ap="http://adeptia.com/schema/bpmn/ap" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="mainProcess" isExecutable="false">
+    <bpmn2:extensionElements>
+      <ap:exceptionScripts>
+        <ap:exceptionScript language="Java" type="service">[ABPM_._ESCAPE_._CDATA_._START]import org.apache.commons.lang.exception.ExceptionUtils;
+Throwable rootCause = ExceptionUtils.getRootCause(exception);
+String exceptionMessage = null;
+if(rootCause == null)
+exceptionMessage = exception.getMessage();
+else
+exceptionMessage = rootCause.getMessage();
+
+context.put("subprocess_code", "ERROR_IN_CHILD_FLOW");
+context.put("subprocess_text", exceptionMessage);[ABPM_._ESCAPE_._CDATA_._END]</ap:exceptionScript>
+      </ap:exceptionScripts>
+      <ap:properties>
+        <ap:property name="version">[ABPM_._ESCAPE_._CDATA_._START]1.0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+      </ap:properties>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="StartEvent_1" name="Start Event">
+      <bpmn2:outgoing>SequenceFlow_1b6aj9j</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_1e4f1op" name="Source">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="Source" id="stream_14u2fyp" dataObjectReferenceId="" consumer="Task_0lrkh7s" error="false" visible="false" source="Task_1e4f1op" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Source[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]FtpSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168000104138587630693700004[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]Source[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]FtpSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="jtaEnlist">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Source[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="eventContextEnabled">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1b6aj9j</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1f5gito</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1b6aj9j" sourceRef="StartEvent_1" targetRef="Task_1e4f1op" />
+    <bpmn2:task id="Task_0lrkh7s" name="Repeater Service">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Repeater Service[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:streams>
+          <ap:stream name="ByPassDecryption" id="stream_06kbh2o" dataObjectReferenceId="" consumer="Task_1fthprw" error="false" visible="false" source="Task_0lrkh7s" />
+          <ap:stream name="SrcStream" id="stream_0kcwe9p" dataObjectReferenceId="undefined" consumer="Task_0tnexno" error="false" visible="false" source="Task_0lrkh7s" />
+        </ap:streams>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]Source[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ByPassDecryption:SrcStream[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1f5gito</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_05nog21</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1f5gito" sourceRef="Task_1e4f1op" targetRef="Task_0lrkh7s" />
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_0v0csfo" default="SequenceFlow_01tmj56">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_0vov3gc[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="displaySeqFlowOrder">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_05nog21</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0vov3gc</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_01tmj56</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_05nog21" sourceRef="Task_0lrkh7s" targetRef="ExclusiveGateway_0v0csfo" />
+    <bpmn2:task id="Task_0tnexno" name="Data Decryption">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="Data Decryption" id="stream_0rhhq6e" dataObjectReferenceId="" consumer="Task_1fthprw" error="false" visible="false" source="Task_0tnexno" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Data Decryption[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]DataSecurity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168001073149146128339700007[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]Data_Decryption[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]DataSecurity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceSource[SrcStream][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Data Decryption[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0vov3gc</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0ljuc1b</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0vov3gc" sourceRef="ExclusiveGateway_0v0csfo" targetRef="Task_0tnexno">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return !RuntimeUtils.isByPassActivity(context,"Data_Decryption");
+					
+				[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="Task_1fthprw" name="Stream Selector">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Stream Selector[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorSource[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:streams>
+          <ap:stream name="Stream Selector" id="stream_031sd99" dataObjectReferenceId="" consumer="Task_1h1xpz3" error="false" visible="false" source="Task_1fthprw" />
+        </ap:streams>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceSource[ByPassDecryption]^Data_Decryption[Data Decryption][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Stream Selector[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_01tmj56</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0ljuc1b</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1kd258l</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_01tmj56" sourceRef="ExclusiveGateway_0v0csfo" targetRef="Task_1fthprw">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_0ljuc1b" sourceRef="Task_0tnexno" targetRef="Task_1fthprw" />
+    <bpmn2:task id="Task_1h1xpz3" name="RepeaterService">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:streams>
+          <ap:stream name="ByPassEncryption" id="stream_1f484x1" dataObjectReferenceId="" consumer="Task_0sass3o" error="false" visible="false" source="Task_1h1xpz3" />
+          <ap:stream name="TarStream" id="stream_1pssw7n" dataObjectReferenceId="undefined" consumer="Task_19jajms" error="false" visible="false" source="Task_1h1xpz3" />
+        </ap:streams>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorSource[Stream Selector][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]ByPassEncryption:TarStream[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1kd258l</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0xbho2g</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1kd258l" sourceRef="Task_1fthprw" targetRef="Task_1h1xpz3" />
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1vpmd4a" default="SequenceFlow_01jwr9c">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_1aoj1m1[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="displaySeqFlowOrder">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0xbho2g</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1aoj1m1</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_01jwr9c</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_0xbho2g" sourceRef="Task_1h1xpz3" targetRef="ExclusiveGateway_1vpmd4a" />
+    <bpmn2:task id="Task_19jajms" name="Data Encryption">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="Data Encryption" id="stream_1q44hgz" dataObjectReferenceId="" consumer="Task_0sass3o" error="false" visible="false" source="Task_19jajms" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Data Encryption[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]DataSecurity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168001073149146137443800009[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]Data_Encryption[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]DataSecurity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget[TarStream][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]Data Encryption[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1aoj1m1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0np2zx9</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1aoj1m1" sourceRef="ExclusiveGateway_1vpmd4a" targetRef="Task_19jajms">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return !RuntimeUtils.isByPassActivity(context,"Data_Encryption");
+					
+				
+					
+				[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="Task_0sass3o" name="Stream Selector">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="StreamSelectorTarget" id="stream_17wrzrb" dataObjectReferenceId="" consumer="Task_1g1x3xa" error="false" visible="false" source="Task_0sass3o" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Stream Selector[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget[ByPassEncryption]^Data_Encryption[Data Encryption][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0np2zx9</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_01jwr9c</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0htyf26</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0np2zx9" sourceRef="Task_19jajms" targetRef="Task_0sass3o" />
+    <bpmn2:sequenceFlow id="SequenceFlow_01jwr9c" sourceRef="ExclusiveGateway_1vpmd4a" targetRef="Task_0sass3o">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="Task_1q18wmu" name="Target">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Target[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]FtpTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168000104138587630544800002[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]Destination[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]FtpTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[NormalTargetStream][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1q0cn0t</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0rdvf3e</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0htyf26" sourceRef="Task_0sass3o" targetRef="Task_1g1x3xa" />
+    <bpmn2:endEvent id="EndEvent_1rbk3yp" name="End Event">
+      <bpmn2:extensionElements>
+        <ap:properties>
+          <ap:property name="attachNotification">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="mailNotification">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]End Event[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1o0wy69</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_10y2f05</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_147322r</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_10z9qnc</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_17qinbs" default="SequenceFlow_1q0cn0t">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_0txb6mx[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="displaySeqFlowOrder">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1fios6w</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0txb6mx</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1q0cn0t</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="Task_1cv81gz" name="Call Post Process">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Call Post Process[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]CustomPlugin[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168001115157614930007800013[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]AC_CP_Call_Post_Process_For_Custom[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]CustomPlugin[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[PostProcessStream][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]ISO-8859-1[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="consumeStream">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0txb6mx</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_117ws52</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0txb6mx" sourceRef="ExclusiveGateway_17qinbs" targetRef="Task_1cv81gz">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeConstants;
+
+String targetAppType = (String) context
+				.get(RuntimeConstants.TARGET_APP_TYPE);
+return RuntimeConstants.POST_PROCESS_APP.equalsIgnoreCase(targetAppType);
+					
+				[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="Task_1f7abue" name="Call action to execute post process flow">
+      <bpmn2:extensionElements>
+        <ap:properties>
+          <ap:property name="flowId">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="resultCtxVarName">[ABPM_._ESCAPE_._CDATA_._START]childFlowExecutionStatus[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="executeOnSameNode">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]Call action to execute post process flow[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]AC_Call_Post_Process_Action[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]Call[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]action[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]Call[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_117ws52</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_04xus6x</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_117ws52" sourceRef="Task_1cv81gz" targetRef="Task_1f7abue" />
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_1osm2ne" default="SequenceFlow_10y2f05">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_0rcoutj[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="displaySeqFlowOrder">[ABPM_._ESCAPE_._CDATA_._START]true[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_04xus6x</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0rcoutj</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_10y2f05</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_04xus6x" sourceRef="Task_1f7abue" targetRef="ExclusiveGateway_1osm2ne" />
+    <bpmn2:task id="Task_141s4cm" name="AC_CP_AbortParentFlow">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]AC_CP_AbortParentFlow[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]CustomPlugin[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START]192168001180149854474333600004[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]AC_CP_AbortParentFlow[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]CustomPlugin[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]null[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]ISO-8859-1[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="generateStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="consumeStream">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0rcoutj</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1o0wy69</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_0rcoutj" sourceRef="ExclusiveGateway_1osm2ne" targetRef="Task_141s4cm">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+
+return RuntimeUtils.isChildFlowAborted(context);
+					
+				[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_10y2f05" sourceRef="ExclusiveGateway_1osm2ne" targetRef="EndEvent_1rbk3yp">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_1o0wy69" sourceRef="Task_141s4cm" targetRef="EndEvent_1rbk3yp" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1q0cn0t" sourceRef="ExclusiveGateway_17qinbs" targetRef="Task_1q18wmu">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="Task_1g1x3xa" name="RepeaterService">
+      <bpmn2:extensionElements>
+        <ap:streams>
+          <ap:stream name="NormalTargetStream" id="stream_1dznnhc" dataObjectReferenceId="" consumer="Task_1q18wmu" error="false" visible="false" source="Task_1g1x3xa" />
+          <ap:stream name="PostProcessStream" id="stream_1rxq2vl" dataObjectReferenceId="" consumer="Task_1cv81gz" error="false" visible="false" source="Task_1g1x3xa" />
+          <ap:stream id="stream_0cmacjs" name="ContextTargetStream" consumer="Task_03py4il" source="Task_1g1x3xa" error="false" visible="false" />
+        </ap:streams>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]RepeaterService[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]StreamSelectorTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START]NormalTargetStream:PostProcessStream:ContextTargetStream[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0htyf26</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1fios6w</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="SequenceFlow_1fios6w" sourceRef="Task_1g1x3xa" targetRef="ExclusiveGateway_17qinbs" />
+    <bpmn2:task id="Task_03py4il" name="ContextTarget">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label">[ABPM_._ESCAPE_._CDATA_._START]ContextTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="type">[ABPM_._ESCAPE_._CDATA_._START]ContextTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="id">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="name">[ABPM_._ESCAPE_._CDATA_._START]ContextTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="async">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="signal">[ABPM_._ESCAPE_._CDATA_._START]SignalComplete[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serverEntity">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="serviceType">[ABPM_._ESCAPE_._CDATA_._START]activity[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+          <ap:attribute name="uiType">[ABPM_._ESCAPE_._CDATA_._START]ContextTarget[ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="restartTriesCount">[ABPM_._ESCAPE_._CDATA_._START]0[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="restartWaitTime">[ABPM_._ESCAPE_._CDATA_._START]60[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="source">[ABPM_._ESCAPE_._CDATA_._START]RepeaterServiceTarget2[ContextTargetStream][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="streamNames">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="targetConnectTimeout">[ABPM_._ESCAPE_._CDATA_._START]300[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="characterSetEncoding">[ABPM_._ESCAPE_._CDATA_._START]None[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="documentRepoFileName">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="parameterName">[ABPM_._ESCAPE_._CDATA_._START]response[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="documentRepository">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+          <ap:property name="versionControl">[ABPM_._ESCAPE_._CDATA_._START]false[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_1i2sz0l</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_11i9dn0</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_0czputq" default="SequenceFlow_12l9kj8">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_1i2sz0l[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_0rdvf3e</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_1i2sz0l</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_12l9kj8</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_04aqnkj" default="SequenceFlow_10z9qnc">
+      <bpmn2:extensionElements>
+        <ap:node>
+          <ap:attribute name="label" />
+          <ap:attribute name="comments">[ABPM_._ESCAPE_._CDATA_._START][ABPM_._ESCAPE_._CDATA_._END]</ap:attribute>
+        </ap:node>
+        <ap:properties>
+          <ap:property name="pd.gateway.sequenceflow.order">[ABPM_._ESCAPE_._CDATA_._START]SequenceFlow_147322r[ABPM_._ESCAPE_._CDATA_._END]</ap:property>
+        </ap:properties>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_12l9kj8</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_11i9dn0</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_147322r</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_10z9qnc</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_0rdvf3e" sourceRef="Task_1q18wmu" targetRef="ExclusiveGateway_0czputq" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1i2sz0l" sourceRef="ExclusiveGateway_0czputq" targetRef="Task_03py4il">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+return RuntimeUtils.isOutputContextTarget(context);[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_12l9kj8" sourceRef="ExclusiveGateway_0czputq" targetRef="ExclusiveGateway_04aqnkj">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_11i9dn0" sourceRef="Task_03py4il" targetRef="ExclusiveGateway_04aqnkj" />
+    <bpmn2:sequenceFlow id="SequenceFlow_147322r" sourceRef="ExclusiveGateway_04aqnkj" targetRef="EndEvent_1rbk3yp">
+      <bpmn2:extensionElements>
+        <ap:condition type="Java">
+          <ap:script language="Java">[ABPM_._ESCAPE_._CDATA_._START]import com.adeptia.connect2.runtime.RuntimeUtils;
+return RuntimeUtils.validateActivitiesOutput(context,false,false);[ABPM_._ESCAPE_._CDATA_._END]</ap:script>
+        </ap:condition>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="SequenceFlow_10z9qnc" sourceRef="ExclusiveGateway_04aqnkj" targetRef="EndEvent_1rbk3yp">
+      <bpmn2:extensionElements />
+    </bpmn2:sequenceFlow>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="mainProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:stroke="#808080">
+        <dc:Bounds x="100" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="90" y="236" width="56" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1e4f1op_di" bpmnElement="Task_1e4f1op" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="178" y="199" width="81" height="38" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1b6aj9j_di" bpmnElement="SequenceFlow_1b6aj9j" bioc:stroke="#808080">
+        <di:waypoint x="136" y="218" />
+        <di:waypoint x="178" y="219" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="112" y="198" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0lrkh7s_di" bpmnElement="Task_0lrkh7s" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="175" y="272" width="85" height="37" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1f5gito_di" bpmnElement="SequenceFlow_1f5gito" bioc:stroke="#808080">
+        <di:waypoint x="219" y="237" />
+        <di:waypoint x="218" y="272" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="174" y="234" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0v0csfo_di" bpmnElement="ExclusiveGateway_0v0csfo" isMarkerVisible="true" bioc:stroke="#808080">
+        <dc:Bounds x="199" y="337" width="33" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="144" y="347" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_05nog21_di" bpmnElement="SequenceFlow_05nog21" bioc:stroke="#808080">
+        <di:waypoint x="217" y="309" />
+        <di:waypoint x="216" y="338" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="172" y="303" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0tnexno_di" bpmnElement="Task_0tnexno" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="172" y="394" width="88" height="37" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0vov3gc_di" bpmnElement="SequenceFlow_0vov3gc" bioc:stroke="#808080">
+        <di:waypoint x="216" y="369" />
+        <di:waypoint x="216" y="394" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="376" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1fthprw_di" bpmnElement="Task_1fthprw" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="285" y="330" width="83" height="45" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_01tmj56_di" bpmnElement="SequenceFlow_01tmj56" bioc:stroke="#808080">
+        <di:waypoint x="232" y="353" />
+        <di:waypoint x="285" y="353" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="214" y="332" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ljuc1b_di" bpmnElement="SequenceFlow_0ljuc1b" bioc:stroke="#808080">
+        <di:waypoint x="260" y="413" />
+        <di:waypoint x="327" y="413" />
+        <di:waypoint x="327" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="249" y="392" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1h1xpz3_di" bpmnElement="Task_1h1xpz3" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="961" y="261" width="85" height="37" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1kd258l_di" bpmnElement="SequenceFlow_1kd258l" bioc:stroke="#808080">
+        <di:waypoint x="368" y="353" />
+        <di:waypoint x="544" y="353" />
+        <di:waypoint x="544" y="211" />
+        <di:waypoint x="1004" y="211" />
+        <di:waypoint x="1004" y="261" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="514" y="276" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1vpmd4a_di" bpmnElement="ExclusiveGateway_1vpmd4a" isMarkerVisible="true" bioc:stroke="#808080">
+        <dc:Bounds x="987" y="337" width="33" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="932" y="347" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xbho2g_di" bpmnElement="SequenceFlow_0xbho2g" bioc:stroke="#808080">
+        <di:waypoint x="1004" y="298" />
+        <di:waypoint x="1004" y="337" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="974" y="312" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_19jajms_di" bpmnElement="Task_19jajms" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1061" y="402" width="88" height="37" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1aoj1m1_di" bpmnElement="SequenceFlow_1aoj1m1" bioc:stroke="#808080">
+        <di:waypoint x="1004" y="369" />
+        <di:waypoint x="1004" y="421" />
+        <di:waypoint x="1061" y="421" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="974" y="389" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0sass3o_di" bpmnElement="Task_0sass3o" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1063" y="330" width="83" height="45" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0np2zx9_di" bpmnElement="SequenceFlow_0np2zx9" bioc:stroke="#808080">
+        <di:waypoint x="1105" y="402" />
+        <di:waypoint x="1105" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1075" y="383" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01jwr9c_di" bpmnElement="SequenceFlow_01jwr9c" bioc:stroke="#808080">
+        <di:waypoint x="1020" y="353" />
+        <di:waypoint x="1063" y="353" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="997" y="332" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1q18wmu_di" bpmnElement="Task_1q18wmu" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1268" y="152" width="81" height="38" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0htyf26_di" bpmnElement="SequenceFlow_0htyf26" bioc:stroke="#008000">
+        <di:waypoint x="1146" y="353" />
+        <di:waypoint x="1171" y="353" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1114" y="332" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1rbk3yp_di" bpmnElement="EndEvent_1rbk3yp" bioc:stroke="#808080">
+        <dc:Bounds x="1455" y="153" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1393" y="165" width="52" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_17qinbs_di" bpmnElement="ExclusiveGateway_17qinbs" isMarkerVisible="true" bioc:stroke="#808080">
+        <dc:Bounds x="1292" y="337" width="33" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1290" y="347" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1cv81gz_di" bpmnElement="Task_1cv81gz" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1357" y="395" width="101" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0txb6mx_di" bpmnElement="SequenceFlow_0txb6mx" bioc:stroke="#808080">
+        <di:waypoint x="1309" y="369" />
+        <di:waypoint x="1309" y="413" />
+        <di:waypoint x="1357" y="413" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1279" y="385" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1f7abue_di" bpmnElement="Task_1f7abue" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1510" y="383" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_117ws52_di" bpmnElement="SequenceFlow_117ws52" bioc:stroke="#808080">
+        <di:waypoint x="1458" y="413" />
+        <di:waypoint x="1510" y="413" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1439" y="392" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1osm2ne_di" bpmnElement="ExclusiveGateway_1osm2ne" isMarkerVisible="true" bioc:stroke="#808080">
+        <dc:Bounds x="1456" y="275" width="33" height="32" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1401" y="285" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_04xus6x_di" bpmnElement="SequenceFlow_04xus6x" bioc:stroke="#808080">
+        <di:waypoint x="1575" y="383" />
+        <di:waypoint x="1575" y="343" />
+        <di:waypoint x="1473" y="343" />
+        <di:waypoint x="1473" y="307" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1479" y="322" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_141s4cm_di" bpmnElement="Task_141s4cm" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1548" y="266" width="100" height="49" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rcoutj_di" bpmnElement="SequenceFlow_0rcoutj" bioc:stroke="#808080">
+        <di:waypoint x="1489" y="291" />
+        <di:waypoint x="1548" y="291" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1474" y="270" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10y2f05_di" bpmnElement="SequenceFlow_10y2f05" bioc:stroke="#808080">
+        <di:waypoint x="1473" y="275" />
+        <di:waypoint x="1473" y="189" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1443" y="226" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1o0wy69_di" bpmnElement="SequenceFlow_1o0wy69" bioc:stroke="#808080">
+        <di:waypoint x="1598" y="266" />
+        <di:waypoint x="1598" y="171" />
+        <di:waypoint x="1491" y="171" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1568" y="213" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1q0cn0t_di" bpmnElement="SequenceFlow_1q0cn0t" bioc:stroke="#808080">
+        <di:waypoint x="1309" y="337" />
+        <di:waypoint x="1309" y="190" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1279" y="258" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1g1x3xa_di" bpmnElement="Task_1g1x3xa" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1171" y="334" width="85" height="37" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fios6w_di" bpmnElement="SequenceFlow_1fios6w" bioc:stroke="#008000">
+        <di:waypoint x="1256" y="353" />
+        <di:waypoint x="1292" y="353" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1229" y="332" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_03py4il_di" bpmnElement="Task_03py4il" bioc:stroke="#808080" bioc:fill="url(#task_color)">
+        <dc:Bounds x="1244" y="-113" width="130" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0czputq_di" bpmnElement="ExclusiveGateway_0czputq" isMarkerVisible="true" bioc:stroke="#808080" bioc:fill="url(#exclusivegateway_color)">
+        <dc:Bounds x="1284" y="30" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1274" y="49" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_04aqnkj_di" bpmnElement="ExclusiveGateway_04aqnkj" isMarkerVisible="true" bioc:stroke="#808080" bioc:fill="url(#exclusivegateway_color)">
+        <dc:Bounds x="1448" y="30" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1508" y="49" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rdvf3e_di" bpmnElement="SequenceFlow_0rdvf3e" bioc:stroke="#808080">
+        <di:waypoint x="1309" y="152" />
+        <di:waypoint x="1309" y="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="110" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1i2sz0l_di" bpmnElement="SequenceFlow_1i2sz0l" bioc:stroke="#808080">
+        <di:waypoint x="1309" y="30" />
+        <di:waypoint x="1309" y="-53" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="-17.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_12l9kj8_di" bpmnElement="SequenceFlow_12l9kj8" bioc:stroke="#808080">
+        <di:waypoint x="1334" y="55" />
+        <di:waypoint x="1448" y="55" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1391" y="34" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11i9dn0_di" bpmnElement="SequenceFlow_11i9dn0" bioc:stroke="#808080">
+        <di:waypoint x="1374" y="-83" />
+        <di:waypoint x="1473" y="-83" />
+        <di:waypoint x="1473" y="30" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1423.5" y="-104" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_147322r_di" bpmnElement="SequenceFlow_147322r" bioc:stroke="#808080">
+        <di:waypoint x="1473" y="80" />
+        <di:waypoint x="1473" y="153" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1488" y="110.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10z9qnc_di" bpmnElement="SequenceFlow_10z9qnc" bioc:stroke="#808080">
+        <di:waypoint x="1498" y="55" />
+        <di:waypoint x="1534" y="55" />
+        <di:waypoint x="1534" y="148" />
+        <di:waypoint x="1514" y="148" />
+        <di:waypoint x="1489" y="162" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1549" y="95.5" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
+]]></au_webPdXml>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_modifiedDate><![CDATA[2019-12-13 16:44:56.0]]></au_modifiedDate>
+        <au_connectDashboardLogging><![CDATA[true]]></au_connectDashboardLogging>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_repositoryAction><![CDATA[L]]></au_repositoryAction>
+        <au_activeFlag><![CDATA[true]]></au_activeFlag>
+        <au_dataEncryptionAtRest><![CDATA[useGlobalPolicy]]></au_dataEncryptionAtRest>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_loggingLevel><![CDATA[ERROR]]></au_loggingLevel>
+        <au_priority><![CDATA[NORMAL]]></au_priority>
+        <au_advanced><![CDATA[true]]></au_advanced>
+        <au_OldFlowDescriptor><![CDATA[null]]></au_OldFlowDescriptor>
+        <au_realTimeConfiguration><![CDATA[false]]></au_realTimeConfiguration>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_id><![CDATA[192168001115157319131420700001]]></au_id>
+        <au_logRetentionAction><![CDATA[L]]></au_logRetentionAction>
+    </AU_TRANSACTION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_flowDescriptor" type="12"/>
+        <column name="au_activeFlag" type="-7"/>
+        <column name="au_templateName" type="12"/>
+        <column name="au_advanced" type="-7"/>
+        <column name="au_loggingLevel" type="12"/>
+        <column name="au_priority" type="12"/>
+        <column name="au_repositoryAction" type="12"/>
+        <column name="au_logRetentionAction" type="12"/>
+        <column name="au_childFlows" type="12"/>
+        <column name="au_trackVariables" type="12"/>
+        <column name="au_retainVarXml" type="-7"/>
+        <column name="au_recoverable" type="-7"/>
+        <column name="au_realTimeConfiguration" type="-7"/>
+        <column name="au_webPdXml" type="12"/>
+        <column name="au_OldFlowDescriptor" type="12"/>
+        <column name="au_dataEncryptionAtRest" type="12"/>
+        <column name="au_connectDashboardLogging" type="-7"/>
+    </columnInfo>
+</data>
