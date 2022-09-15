@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules7137844561692505552.pdf]]></au_pdfFileName>
+        <au_modifiedDate><![CDATA[2014-06-27 10:49:45.0]]></au_modifiedDate>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_sourceSchema><![CDATA[XMLSchema:192168001075140377752597500004]]></au_sourceSchema>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_customAutoMap><![CDATA[]]></au_customAutoMap>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_creationDate><![CDATA[2014-06-26 15:45:22.0]]></au_creationDate>
+        <au_valueMap><![CDATA[<ValueMap/>]]></au_valueMap>
+        <au_targetSchema><![CDATA[TextSchema:192168001075140377764707200006]]></au_targetSchema>
+        <au_characterSetEncoding><![CDATA[ISO-8859-1]]></au_characterSetEncoding>
+        <au_reusable><![CDATA[null]]></au_reusable>
+        <au_version><![CDATA[1]]></au_version>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001205130027715287200007]]></au_groupOwner>
+        <au_xslTemplate><![CDATA[<XslTemplate/>]]></au_xslTemplate>
+        <au_dbInfoName><![CDATA[]]></au_dbInfoName>
+        <au_entityName><![CDATA[BooksDetails_XML_to_CSV_Mapping]]></au_entityName>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_description><![CDATA[Mapping for books details XML file to CSV file.]]></au_description>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001205130027722316300009]]></au_modifiedBy>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+        <au_userOwner><![CDATA[IndigoUser:192168001205130027722316300009]]></au_userOwner>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:saxonJavaMappingTransformation="java:com.adeptia.indigo.services.mapping.MappingTransformation" xmlns:saxonJavaMapperQueryExecutor="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor" xmlns:saxonJavaAggregateFunctionHandler="java:com.adeptia.indigo.services.mapping.AggregateFunctionHandler"  xmlns:str="http://exslt.org/strings" exclude-result-prefixes="saxonJavaMappingTransformation saxonJavaMapperQueryExecutor saxonJavaAggregateFunctionHandler str" xmlns:saxon="http://saxon.sf.net/" extension-element-prefixes="saxon" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1"  indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/> <xsl:variable name="varConn" select="saxonJavaMapperQueryExecutor:getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><xsl:for-each select = "Root/catalog/book"><Record><xsl:attribute name="recordNumber"><xsl:value-of select="./@id"/></xsl:attribute><Author><xsl:value-of select="author"/></Author><Title><xsl:value-of select="title"/></Title><Price><xsl:value-of select="price"/></Price><Genre><xsl:value-of select="genre"/></Genre></Record></xsl:for-each></Root></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_xslTransformer><![CDATA[Saxon]]></au_xslTransformer>
+        <au_json><![CDATA[null]]></au_json>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="ISO-8859-1"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>DM_BooksDetails</mappingName>
+          <mappingDescription>DM_BooksDetails</mappingDescription>
+          <sourceSchemaID>XMLSchema:192168001075140377752597500004</sourceSchemaID>
+          <targetSchemaID>TextSchema:192168001075140377764707200006</targetSchemaID>
+          <mappingOwnerGroup>DataInterface</mappingOwnerGroup>
+          <mappingOwner>diuser</mappingOwner>
+          <mappingLastModifiedBy>diuser</mappingLastModifiedBy>
+          <mappingCreationDate>06/26/2014 15:45:07</mappingCreationDate>
+          <mappingModifiedDate>06/26/2014 16:03:32</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>Root</name>
+               <schemaName>XMLSchema_BooksDetails</schemaName>
+               <schemaID>XMLSchema:192168001075140377752597500004</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>BooksDetails_Schema</schemaName>
+               <schemaID>TextSchema:192168001075140377764707200006</schemaID>
+               <stream>output_1</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record/@recordNumber</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_BooksDetails/Root/catalog/book/@id</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="recordNumber">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/@recordNumber" mapString="$Input_XMLSchema_BooksDetails/Root/catalog/book/@id" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_BooksDetails/Root/catalog/book/@id" mapString="&lt;S>$Input_XMLSchema_BooksDetails/Root/catalog/book/@id" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record/Author</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_BooksDetails/Root/catalog/book/author</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Author">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Author" mapString="$Input_XMLSchema_BooksDetails/Root/catalog/book/author" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_BooksDetails/Root/catalog/book/author" mapString="&lt;S>$Input_XMLSchema_BooksDetails/Root/catalog/book/author" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record/Title</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_BooksDetails/Root/catalog/book/title</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Title">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Title" mapString="$Input_XMLSchema_BooksDetails/Root/catalog/book/title" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_BooksDetails/Root/catalog/book/title" mapString="&lt;S>$Input_XMLSchema_BooksDetails/Root/catalog/book/title" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record/Price</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_BooksDetails/Root/catalog/book/price</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Price">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Price" mapString="$Input_XMLSchema_BooksDetails/Root/catalog/book/price" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_BooksDetails/Root/catalog/book/price" mapString="&lt;S>$Input_XMLSchema_BooksDetails/Root/catalog/book/price" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record/Genre</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_BooksDetails/Root/catalog/book/genre</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Genre">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Genre" mapString="$Input_XMLSchema_BooksDetails/Root/catalog/book/genre" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_BooksDetails/Root/catalog/book/genre" mapString="&lt;S>$Input_XMLSchema_BooksDetails/Root/catalog/book/genre" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>BooksDetails_Schema</targetName>
+          <dest>/Root/Record</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_XMLSchema_BooksDetails/Root/catalog/book</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record">
+               <Position height="25" identify="&lt;T>" label="/Root/Record" mapString="&lt;T>/Root/Record" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <DataViewerRecordCount>50</DataViewerRecordCount>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+     <characterSetEncoding>ISO-8859-1</characterSetEncoding>
+     <tipOfTheDay>false</tipOfTheDay>
+     <contextSchemaLoadedAtSource>false</contextSchemaLoadedAtSource>
+     <contextSchemaLoadedAtTarget>false</contextSchemaLoadedAtTarget>
+     <contextSchemaDefinition></contextSchemaDefinition>
+     <filterUnmappedElement>false</filterUnmappedElement>
+     <dbQueryCaching>false</dbQueryCaching>
+     <cacheIncludedSchemas>false</cacheIncludedSchemas>
+     <TreeExpandLevelCount>3</TreeExpandLevelCount>
+     <TreeExpandLevelCountForWebService>10</TreeExpandLevelCountForWebService>
+     <TreeExpandLevelForEasySchemaExtensions>10</TreeExpandLevelForEasySchemaExtensions>
+     <SelfRecursionLevel>0</SelfRecursionLevel>
+     <EnableTypesBuffering>true</EnableTypesBuffering>
+     <CdataSectionElements></CdataSectionElements>
+     <excludeResultPrefixes>saxonJavaMappingTransformation saxonJavaMapperQueryExecutor saxonJavaAggregateFunctionHandler str</excludeResultPrefixes>
+     <webservice>
+          <consumers></consumers>
+     </webservice>
+     <CustomAutoMapInUse></CustomAutoMapInUse>
+     <processElementFormDefault>false</processElementFormDefault>
+</maps>]]></au_mapXmlFile>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_id><![CDATA[192168001075140377772225800009]]></au_id>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+        <au_optimizedLoading><![CDATA[false]]></au_optimizedLoading>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
