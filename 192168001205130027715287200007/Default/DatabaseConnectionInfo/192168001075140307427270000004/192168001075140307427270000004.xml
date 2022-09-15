@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_DBCONNECTIONINFO>
+        <au_checkoutTimeout><![CDATA[1000]]></au_checkoutTimeout>
+        <au_appType><![CDATA[Salesforce]]></au_appType>
+        <au_driver><![CDATA[192168001083140180460468800004]]></au_driver>
+        <au_enablePooling><![CDATA[false]]></au_enablePooling>
+        <au_maxPoolSize><![CDATA[10]]></au_maxPoolSize>
+        <au_url><![CDATA[gMaVkGbVLPs6RicnGNdhZvpONVZ6kycG2KZhv2kDdwW9sFyDBA02w8nRgFakL4G5WZxEAN5mJAb6
+VblO850p0E2doTO5TYWNB5GbnJFdh9yBbf3lVuqswvx+HrIWgn3THJNCmSmg53r+gdc0KjpM+Nut
+loH3+cQ+0yS3bQoGuhNmfhHZ0CjQIS7W1/Zhm/7LJSwpgVKyoi/RjyYhM5wo37nlNEHjdiv7X5Me
+ZjMXaAGtQl7HDlq8dupNgnEdARP7UogeKUCA3Fh3t9ozZCMeag==]]></au_url>
+        <au_description><![CDATA[This is DB info for connecting to Salesforce.]]></au_description>
+        <au_dbSchemaName><![CDATA[]]></au_dbSchemaName>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001205130027715287200007]]></au_groupOwner>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_maxIdleTime><![CDATA[10]]></au_maxIdleTime>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001205130027722316300009]]></au_modifiedBy>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_creationDate><![CDATA[2014-06-18 12:21:12.0]]></au_creationDate>
+        <au_version><![CDATA[1]]></au_version>
+        <au_dbUser><![CDATA[]]></au_dbUser>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_entityName><![CDATA[DB_Info_Salesforce]]></au_entityName>
+        <au_modifiedDate><![CDATA[2014-06-24 15:25:57.0]]></au_modifiedDate>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_userOwner><![CDATA[IndigoUser:192168001205130027722316300009]]></au_userOwner>
+        <au_id><![CDATA[192168001075140307427270000004]]></au_id>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_minPoolSize><![CDATA[3]]></au_minPoolSize>
+        <au_dbPassword><![CDATA[]]></au_dbPassword>
+        <au_initialPoolSize><![CDATA[3]]></au_initialPoolSize>
+    </AU_DBCONNECTIONINFO>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_appType" type="12"/>
+        <column name="au_driver" type="12"/>
+        <column name="au_url" type="12"/>
+        <column name="au_dbUser" type="12"/>
+        <column name="au_dbPassword" type="12"/>
+        <column name="au_enablePooling" type="-7"/>
+        <column name="au_maxPoolSize" type="12"/>
+        <column name="au_minPoolSize" type="12"/>
+        <column name="au_initialPoolSize" type="12"/>
+        <column name="au_maxIdleTime" type="12"/>
+        <column name="au_checkoutTimeout" type="12"/>
+        <column name="au_dbSchemaName" type="12"/>
+    </columnInfo>
+</data>
