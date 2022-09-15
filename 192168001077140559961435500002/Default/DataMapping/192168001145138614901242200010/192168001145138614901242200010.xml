@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_creationDate><![CDATA[2013-12-04 14:53:32.0]]></au_creationDate>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_optimizedLoading><![CDATA[false]]></au_optimizedLoading>
+        <au_xslTransformer><![CDATA[Saxon]]></au_xslTransformer>
+        <au_json><![CDATA[null]]></au_json>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_version><![CDATA[1]]></au_version>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules6492221951989370599.pdf]]></au_pdfFileName>
+        <au_id><![CDATA[192168001145138614901242200010]]></au_id>
+        <au_description><![CDATA[data mapping]]></au_description>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:saxonJavaMappingTransformation="java:com.adeptia.indigo.services.mapping.MappingTransformation" xmlns:saxonJavaMapperQueryExecutor="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor" xmlns:saxonJavaAggregateFunctionHandler="java:com.adeptia.indigo.services.mapping.AggregateFunctionHandler"  xmlns:str="http://exslt.org/strings" exclude-result-prefixes="saxonJavaMappingTransformation saxonJavaMapperQueryExecutor saxonJavaAggregateFunctionHandler str" xmlns:saxon="http://saxon.sf.net/" extension-element-prefixes="saxon" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1"  indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/> <xsl:variable name="varConn" select="saxonJavaMapperQueryExecutor:getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><Record><xsl:attribute name="recordNumber"></xsl:attribute><Field1><xsl:value-of select="Root/Record/Field1"/></Field1></Record></Root></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="ISO-8859-1"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>AC_DataMapping</mappingName>
+          <mappingDescription>data mapping</mappingDescription>
+          <sourceSchemaID>TextSchema:192168001145138613617495100003</sourceSchemaID>
+          <targetSchemaID>TextSchema:192168001145138613618814700005</targetSchemaID>
+          <mappingOwnerGroup>administrators</mappingOwnerGroup>
+          <mappingOwner>admin</mappingOwner>
+          <mappingLastModifiedBy>admin</mappingLastModifiedBy>
+          <mappingCreationDate>12/04/2013 14:53:32</mappingCreationDate>
+          <mappingModifiedDate>12/04/2013 17:11:52</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>Root</name>
+               <schemaName>AC_TextSchema_Source</schemaName>
+               <schemaID>TextSchema:192168001145138613617495100003</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>AC_TextSchema_Traget</schemaName>
+               <schemaID>TextSchema:192168001145138613618814700005</schemaID>
+               <stream>output_1</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>AC_TextSchema_Traget</targetName>
+          <dest>/Root/Record/Field1</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_AC_TextSchema_Source/Root/Record/Field1</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <namespaceRemovePrefix>false</namespaceRemovePrefix>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Field1">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Field1" mapString="$Input_AC_TextSchema_Source/Root/Record/Field1" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_AC_TextSchema_Source/Root/Record/Field1" mapString="&lt;S>$Input_AC_TextSchema_Source/Root/Record/Field1" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <DataViewerRecordCount>50</DataViewerRecordCount>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+     <characterSetEncoding>ISO-8859-1</characterSetEncoding>
+     <tipOfTheDay>true</tipOfTheDay>
+     <contextSchemaLoadedAtSource>false</contextSchemaLoadedAtSource>
+     <contextSchemaLoadedAtTarget>false</contextSchemaLoadedAtTarget>
+     <contextSchemaDefinition></contextSchemaDefinition>
+     <filterUnmappedElement>false</filterUnmappedElement>
+     <dbQueryCaching>false</dbQueryCaching>
+     <cacheIncludedSchemas>false</cacheIncludedSchemas>
+     <TreeExpandLevelCount>3</TreeExpandLevelCount>
+     <TreeExpandLevelCountForWebService>10</TreeExpandLevelCountForWebService>
+     <TreeExpandLevelForEasySchemaExtensions>5</TreeExpandLevelForEasySchemaExtensions>
+     <SelfRecursionLevel>0</SelfRecursionLevel>
+     <EnableTypesBuffering>true</EnableTypesBuffering>
+     <CdataSectionElements></CdataSectionElements>
+     <excludeResultPrefixes>saxonJavaMappingTransformation saxonJavaMapperQueryExecutor saxonJavaAggregateFunctionHandler str</excludeResultPrefixes>
+     <webservice>
+          <consumers></consumers>
+     </webservice>
+     <CustomAutoMapInUse></CustomAutoMapInUse>
+</maps>]]></au_mapXmlFile>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_modifiedDate><![CDATA[2014-05-08 12:56:17.0]]></au_modifiedDate>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001077140566117215700004]]></au_modifiedBy>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_sourceSchema><![CDATA[TextSchema:192168001145138613617495100003]]></au_sourceSchema>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_dbInfoName><![CDATA[]]></au_dbInfoName>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001077140559961435500002]]></au_groupOwner>
+        <au_valueMap><![CDATA[]]></au_valueMap>
+        <au_customAutoMap><![CDATA[]]></au_customAutoMap>
+        <au_targetSchema><![CDATA[TextSchema:192168001145138613618814700005]]></au_targetSchema>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+        <au_characterSetEncoding><![CDATA[ISO-8859-1]]></au_characterSetEncoding>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_entityName><![CDATA[AC_DataMapping]]></au_entityName>
+        <au_reusable><![CDATA[true]]></au_reusable>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_xslTemplate><![CDATA[]]></au_xslTemplate>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
