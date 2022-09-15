@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_SCRIPTEDSERVICE>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_description><![CDATA[scripted service to decide activity at run time]]></au_description>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_modifiedDate><![CDATA[2018-02-08 17:05:44.0]]></au_modifiedDate>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_showHideFlag><![CDATA[false]]></au_showHideFlag>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_id><![CDATA[192168001167138080126638300004]]></au_id>
+        <au_entityName><![CDATA[AC_CP_ActivitiesSelector]]></au_entityName>
+        <au_encodingUsed><![CDATA[ISO-8859-1]]></au_encodingUsed>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001077140559961435500002]]></au_groupOwner>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_script><![CDATA[import com.adeptia.connect2.runtime.Runtime;
+import com.adeptia.connect2.runtime.RuntimeLogging;
+import com.adeptia.connect2.runtime.RuntimeConstants;
+import com.adeptia.indigo.services.ServiceException;
+import com.adeptia.connect2.runtime.RuntimeUtils;
+import java.util.Map;
+import java.util.HashMap;
+
+Map map = new HashMap();	
+
+map.put(1,RuntimeConstants.SOURCE_ACTIVITY);
+map.put(101,RuntimeConstants.SOURCE_DATA_DECRYPTION_ACTIVITY);
+map.put(2,RuntimeConstants.SOURCE_SCHEMA_ACTIVITY);
+map.put(201,RuntimeConstants.CONTENT_BASED_ROUTING_ACTIVITY);
+map.put(3,RuntimeConstants.DATA_MAPPING_ACTIVITY);
+map.put(4,RuntimeConstants.TARGET_SCHEMA_ACTIVITY);
+map.put(5,RuntimeConstants.TARGET_ACTIVITY);
+map.put(501,RuntimeConstants.TARGET_DATA_ENCRYPTION_ACTIVITY);
+
+// if txn is running in reprocessing mode then we need to set this variable value to true in order to run re-run activity selector plugin
+if(RuntimeUtils.isTransactionInReprocessingMode(context)){
+context.put(RuntimeConstants.RE_RUN_CP,"true");
+context.put("startTime",service.getStartTime());
+}else{
+context.put("startTime",service.getTransaction().getStartTime());
+}
+context.put("sequenceIdMap",map);
+context.put("readableStartTime", new Date(service.getStartTime()));
+Runtime executionConfiguration = new Runtime(service.getTransaction(), context, service.getLogger(),RuntimeConstants.NORMAL_MODE);
+executionConfiguration.performAction();]]></au_script>
+        <au_version><![CDATA[1]]></au_version>
+        <au_creationDate><![CDATA[2013-10-03 17:24:26.0]]></au_creationDate>
+        <au_interpreterType><![CDATA[0]]></au_interpreterType>
+        <au_variablesXML><![CDATA[<variables>
+</variables>
+]]></au_variablesXML>
+    </AU_SCRIPTEDSERVICE>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_script" type="12"/>
+        <column name="au_showHideFlag" type="-7"/>
+        <column name="au_variablesXML" type="12"/>
+        <column name="au_encodingUsed" type="12"/>
+        <column name="au_interpreterType" type="4"/>
+    </columnInfo>
+</data>
