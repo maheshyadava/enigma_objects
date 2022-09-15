@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_DBCONNECTIONINFO>
+        <au_description><![CDATA[Connect 2 dummy db driver]]></au_description>
+        <au_enablePooling><![CDATA[false]]></au_enablePooling>
+        <au_dbPassword><![CDATA[dVZNSp20gxg+jY6AXLgfRA==]]></au_dbPassword>
+        <au_entityName><![CDATA[AC_2_0_DBInfo]]></au_entityName>
+        <au_maxPoolSize><![CDATA[10]]></au_maxPoolSize>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_id><![CDATA[192168001180150391332807400005]]></au_id>
+        <au_checkoutTimeout><![CDATA[1000]]></au_checkoutTimeout>
+        <au_creationDate><![CDATA[2017-08-28 15:12:08.0]]></au_creationDate>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_maxIdleTime><![CDATA[10]]></au_maxIdleTime>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001077140566117215700004]]></au_modifiedBy>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_dbSchemaName><![CDATA[]]></au_dbSchemaName>
+        <au_initialPoolSize><![CDATA[3]]></au_initialPoolSize>
+        <au_modifiedDate><![CDATA[2017-08-31 11:43:05.0]]></au_modifiedDate>
+        <au_version><![CDATA[1]]></au_version>
+        <au_userOwner><![CDATA[IndigoUser:192168001077140566117215700004]]></au_userOwner>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001077140559961435500002]]></au_groupOwner>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_url><![CDATA[jdbc:mysql://localhost:3306/connect2]]></au_url>
+        <au_minPoolSize><![CDATA[3]]></au_minPoolSize>
+        <au_appType><![CDATA[AC_2_0_DBDriver]]></au_appType>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_driver><![CDATA[192168001180150391326964000002]]></au_driver>
+        <au_dbUser><![CDATA[root]]></au_dbUser>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+    </AU_DBCONNECTIONINFO>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_appType" type="12"/>
+        <column name="au_driver" type="12"/>
+        <column name="au_url" type="12"/>
+        <column name="au_dbUser" type="12"/>
+        <column name="au_dbPassword" type="12"/>
+        <column name="au_enablePooling" type="-7"/>
+        <column name="au_maxPoolSize" type="12"/>
+        <column name="au_minPoolSize" type="12"/>
+        <column name="au_initialPoolSize" type="12"/>
+        <column name="au_maxIdleTime" type="12"/>
+        <column name="au_checkoutTimeout" type="12"/>
+        <column name="au_dbSchemaName" type="12"/>
+    </columnInfo>
+</data>
