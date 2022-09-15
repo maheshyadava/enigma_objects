@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_id><![CDATA[192168001247124609744929600003]]></au_id>
+        <au_valueMap><![CDATA[null]]></au_valueMap>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001237125680861685900003]]></au_groupOwner>
+        <au_targetSchema><![CDATA[TextSchema:192168001247124609726118700002]]></au_targetSchema>
+        <au_characterSetEncoding><![CDATA[null]]></au_characterSetEncoding>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules35801.pdf]]></au_pdfFileName>
+        <au_customAutoMap><![CDATA[null]]></au_customAutoMap>
+        <au_previousVersion><![CDATA[ ]]></au_previousVersion>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_permissionMask><![CDATA[755]]></au_permissionMask>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:java="http://xml.apache.org/xslt/java" xmlns:xalan="http://xml.apache.org/xalan"  xmlns:str="http://exslt.org/strings" xmlns:redirect="org.apache.xalan.xslt.extensions.Redirect" extension-element-prefixes="redirect" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/><xsl:variable name="Input_InboundOutputSchema" select="document($_Input1)"/> <xsl:variable name="varConn" select="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor.getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><xsl:apply-templates select="$Input_InboundOutputSchema/Root/Record" mode="_Root_Record_order1">
+</xsl:apply-templates></Root></xsl:template><xsl:template match="/Root/Record" mode="_Root_Record_order1">
+<Record><xsl:attribute name="recordNumber"></xsl:attribute><dummy><xsl:value-of select="dummy"/></dummy></Record></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_modifiedDate><![CDATA[2009-06-27 15:44:13.0]]></au_modifiedDate>
+        <au_creationDate><![CDATA[2009-06-27 15:40:49.0]]></au_creationDate>
+        <au_xslTemplate><![CDATA[null]]></au_xslTemplate>
+        <au_userOwner><![CDATA[IndigoUser:192168001237125680875303100006]]></au_userOwner>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_description><![CDATA[Dummy Inbound Mapping]]></au_description>
+        <au_dbInfoName><![CDATA[ ]]></au_dbInfoName>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_reusable><![CDATA[null]]></au_reusable>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+        <au_optimizedLoading><![CDATA[false]]></au_optimizedLoading>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>InboundMapping</mappingName>
+          <mappingDescription>Pre-build Inbound Mapping</mappingDescription>
+          <sourceSchemaID>TextSchema:192168001247124609726118700002</sourceSchemaID>
+          <targetSchemaID>TextSchema:192168001247124609726118700002</targetSchemaID>
+          <mappingOwnerGroup>administrators</mappingOwnerGroup>
+          <mappingOwner>admin</mappingOwner>
+          <mappingLastModifiedBy>admin</mappingLastModifiedBy>
+          <mappingCreationDate>06/27/2009 15:37:56</mappingCreationDate>
+          <mappingModifiedDate>06/27/2009 15:40:46</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>Root</name>
+               <schemaName>InboundOutputSchema</schemaName>
+               <schemaID>TextSchema:192168001247124609726118700002</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>InboundOutputSchema</schemaName>
+               <schemaID>TextSchema:192168001247124609726118700002</schemaID>
+               <stream>output_1</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>InboundOutputSchema</targetName>
+          <dest>/Root/Record/dummy</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_InboundOutputSchema/Root/Record/dummy</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="dummy">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/dummy" mapString="$Input_InboundOutputSchema/Root/Record/dummy" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_InboundOutputSchema/Root/Record/dummy" mapString="&lt;S>$Input_InboundOutputSchema/Root/Record/dummy" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>InboundOutputSchema</targetName>
+          <dest>/Root/Record</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_InboundOutputSchema/Root/Record</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record">
+               <Position height="25" identify="&lt;T>" label="/Root/Record" mapString="$Input_InboundOutputSchema/Root/Record" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_InboundOutputSchema/Root/Record" mapString="&lt;S>$Input_InboundOutputSchema/Root/Record" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+</maps>]]></au_mapXmlFile>
+        <au_synchronized><![CDATA[null]]></au_synchronized>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+        <au_entityName><![CDATA[InboundMapping]]></au_entityName>
+        <au_version><![CDATA[1]]></au_version>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_sourceSchema><![CDATA[TextSchema:192168001247124609726118700002]]></au_sourceSchema>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_json><![CDATA[null]]></au_json>
+        <au_xslTransformer><![CDATA[null]]></au_xslTransformer>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
