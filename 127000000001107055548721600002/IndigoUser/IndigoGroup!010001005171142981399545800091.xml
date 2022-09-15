@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_GROUPS>
-        <au_creationDate><![CDATA[2015-04-23 13:33:15.0]]></au_creationDate>
-        <au_groupInfo><![CDATA[OebienkQ8xoOz6sWCFyG1zSDpyeI22zqxGMC+TBFcDSg+vZqOnewYBXWPQPBa/22]]></au_groupInfo>
-        <au_revision><![CDATA[null]]></au_revision>
-        <au_modifiedDate><![CDATA[2018-02-22 15:04:57.0]]></au_modifiedDate>
-        <au_version><![CDATA[1]]></au_version>
-        <au_previousVersion><![CDATA[]]></au_previousVersion>
-        <au_description><![CDATA[Group for the EDI team]]></au_description>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_comment><![CDATA[Averitt_EDI]]></au_comment>
         <au_groupOwner><![CDATA[IndigoGroup:010001005171142981399545800091]]></au_groupOwner>
+        <au_description><![CDATA[Group for the EDI team]]></au_description>
+        <au_webDavFolder><![CDATA[abc]]></au_webDavFolder>
+        <au_entityName><![CDATA[Averitt_EDI]]></au_entityName>
+        <au_version><![CDATA[1]]></au_version>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_groupInfo><![CDATA[OebienkQ8xoOz6sWCFyG1zSDpyeI22zqxGMC+TBFcDSg+vZqOnewYBXWPQPBa/22]]></au_groupInfo>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_modifiedDate><![CDATA[2018-02-22 15:04:57.0]]></au_modifiedDate>
         <au_id><![CDATA[010001005171142981399545800091]]></au_id>
+        <au_comment><![CDATA[Averitt_EDI]]></au_comment>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
         <au_title><![CDATA[Averitt_EDI]]></au_title>
         <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_synchronized><![CDATA[false]]></au_synchronized>
-        <au_comments><![CDATA[null]]></au_comments>
-        <au_webDavFolder><![CDATA[abc]]></au_webDavFolder>
-        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
-        <au_entityName><![CDATA[Averitt_EDI]]></au_entityName>
         <au_userOwner><![CDATA[IndigoUser:010001005171137694008279300004]]></au_userOwner>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_creationDate><![CDATA[2015-04-23 13:33:15.0]]></au_creationDate>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
     </AU_GROUPS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
