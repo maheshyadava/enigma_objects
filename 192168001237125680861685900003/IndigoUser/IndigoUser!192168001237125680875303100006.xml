@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_USERS>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_lastName><![CDATA[EDI]]></au_lastName>
-        <au_description><![CDATA[Owner of EDI Solution objects.]]></au_description>
-        <PARTNER_OWNER><![CDATA[null]]></PARTNER_OWNER>
-        <au_id><![CDATA[192168001237125680875303100006]]></au_id>
-        <au_keystorePassword><![CDATA[]]></au_keystorePassword>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
         <au_webDavFolder><![CDATA[WebDavFolder:192168001237125680875348400007]]></au_webDavFolder>
+        <au_mobile><![CDATA[]]></au_mobile>
+        <au_lastPasswordChanged><![CDATA[2009-11-17 18:19:05.0]]></au_lastPasswordChanged>
+        <au_lastName><![CDATA[EDI]]></au_lastName>
         <au_comments><![CDATA[null]]></au_comments>
-        <au_fax><![CDATA[]]></au_fax>
-        <AU_LASTMESSAGEVIEWED><![CDATA[null]]></AU_LASTMESSAGEVIEWED>
-        <au_password><![CDATA[w7K8t2+O7DsvVm3BsuSUZQ==]]></au_password>
         <au_city><![CDATA[]]></au_city>
-        <au_activateFlag><![CDATA[Activated]]></au_activateFlag>
-        <au_synchronized><![CDATA[false]]></au_synchronized>
-        <au_userPermission><![CDATA[7]]></au_userPermission>
-        <au_modifiedDate><![CDATA[2009-11-17 18:19:07.0]]></au_modifiedDate>
+        <au_version><![CDATA[1]]></au_version>
         <au_userType><![CDATA[developer]]></au_userType>
         <AU_USERPREFRENCES><![CDATA[null]]></AU_USERPREFRENCES>
-        <au_viewLevel><![CDATA[null]]></au_viewLevel>
-        <au_address2><![CDATA[]]></au_address2>
-        <au_previousVersion><![CDATA[]]></au_previousVersion>
-        <au_primaryGroup><![CDATA[IndigoGroup:192168001237125680861685900003]]></au_primaryGroup>
-        <au_revision><![CDATA[null]]></au_revision>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_creationDate><![CDATA[2009-10-29 15:02:33.0]]></au_creationDate>
-        <au_title><![CDATA[]]></au_title>
-        <au_comment><![CDATA[]]></au_comment>
         <au_manager><![CDATA[]]></au_manager>
-        <au_lastPasswordChanged><![CDATA[2009-11-17 18:19:05.0]]></au_lastPasswordChanged>
+        <au_fax><![CDATA[]]></au_fax>
+        <au_orgName><![CDATA[]]></au_orgName>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_privateKeyPassword><![CDATA[]]></au_privateKeyPassword>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_calendar><![CDATA[]]></au_calendar>
+        <AU_IMAGEIDENTIFIER><![CDATA[null]]></AU_IMAGEIDENTIFIER>
+        <au_creationDate><![CDATA[2009-10-29 15:02:33.0]]></au_creationDate>
+        <au_orgUrl><![CDATA[]]></au_orgUrl>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <AU_LASTMESSAGEVIEWED><![CDATA[null]]></AU_LASTMESSAGEVIEWED>
+        <au_entityName><![CDATA[EDISolutionUser]]></au_entityName>
         <au_phone><![CDATA[]]></au_phone>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_description><![CDATA[Owner of EDI Solution objects.]]></au_description>
+        <au_colleague><![CDATA[]]></au_colleague>
+        <au_sendEmail><![CDATA[true]]></au_sendEmail>
+        <au_id><![CDATA[192168001237125680875303100006]]></au_id>
+        <au_comment><![CDATA[]]></au_comment>
+        <au_userPermission><![CDATA[7]]></au_userPermission>
+        <au_password><![CDATA[w7K8t2+O7DsvVm3BsuSUZQ==]]></au_password>
         <au_lastLogin><![CDATA[1518605839892]]></au_lastLogin>
         <au_modifiedBy><![CDATA[IndigoUser:192168001237125680875303100006]]></au_modifiedBy>
-        <au_version><![CDATA[1]]></au_version>
-        <AU_IMAGEIDENTIFIER><![CDATA[null]]></AU_IMAGEIDENTIFIER>
-        <au_calendar><![CDATA[]]></au_calendar>
-        <au_mobile><![CDATA[]]></au_mobile>
-        <au_address1><![CDATA[]]></au_address1>
-        <au_privateKeyPassword><![CDATA[]]></au_privateKeyPassword>
-        <au_certificateStatus><![CDATA[false]]></au_certificateStatus>
-        <LOCKED_TIME><![CDATA[null]]></LOCKED_TIME>
-        <au_sendEmail><![CDATA[true]]></au_sendEmail>
-        <au_zip><![CDATA[]]></au_zip>
-        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_entityName><![CDATA[EDISolutionUser]]></au_entityName>
-        <AU_UNIQUEIDENTIFIER><![CDATA[null]]></AU_UNIQUEIDENTIFIER>
-        <au_colleague><![CDATA[]]></au_colleague>
-        <au_orgName><![CDATA[]]></au_orgName>
-        <au_firstName><![CDATA[EDI]]></au_firstName>
         <au_state><![CDATA[]]></au_state>
-        <au_email><![CDATA[ediuser@edi.com]]></au_email>
+        <au_firstName><![CDATA[EDI]]></au_firstName>
+        <au_keystorePassword><![CDATA[]]></au_keystorePassword>
+        <LOCKED_TIME><![CDATA[null]]></LOCKED_TIME>
         <AU_READ_ONLY_ACCESS><![CDATA[null]]></AU_READ_ONLY_ACCESS>
-        <au_orgUrl><![CDATA[]]></au_orgUrl>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <AU_UNIQUEIDENTIFIER><![CDATA[null]]></AU_UNIQUEIDENTIFIER>
+        <au_email><![CDATA[ediuser@edi.com]]></au_email>
+        <PARTNER_OWNER><![CDATA[null]]></PARTNER_OWNER>
+        <au_activateFlag><![CDATA[Activated]]></au_activateFlag>
+        <au_certificateStatus><![CDATA[false]]></au_certificateStatus>
+        <au_address1><![CDATA[]]></au_address1>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_viewLevel><![CDATA[null]]></au_viewLevel>
+        <au_modifiedDate><![CDATA[2009-11-17 18:19:07.0]]></au_modifiedDate>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
         <au_country><![CDATA[]]></au_country>
+        <au_zip><![CDATA[]]></au_zip>
+        <au_title><![CDATA[]]></au_title>
+        <au_address2><![CDATA[]]></au_address2>
+        <au_primaryGroup><![CDATA[IndigoGroup:192168001237125680861685900003]]></au_primaryGroup>
     </AU_USERS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
