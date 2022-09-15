@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_permissionMask><![CDATA[750]]></au_permissionMask>
+        <au_xslTemplate><![CDATA[null]]></au_xslTemplate>
+        <au_characterSetEncoding><![CDATA[null]]></au_characterSetEncoding>
+        <au_valueMap><![CDATA[null]]></au_valueMap>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_modifiedDate><![CDATA[2011-03-10 17:31:22.0]]></au_modifiedDate>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_userOwner><![CDATA[IndigoUser:192168001204129836975229500020]]></au_userOwner>
+        <au_synchronized><![CDATA[null]]></au_synchronized>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>DataMappingForRouting</mappingName>
+          <mappingDescription>Mapping for routing from XML file to Excel file.</mappingDescription>
+          <sourceSchemaID>XMLSchema:192168001204129724704562600029</sourceSchemaID>
+          <targetSchemaID>ExcelSchema:192168001204129777293497100002</targetSchemaID>
+          <mappingOwnerGroup>EDIDemo</mappingOwnerGroup>
+          <mappingOwner>EDIUser</mappingOwner>
+          <mappingLastModifiedBy>EDIUser</mappingLastModifiedBy>
+          <mappingCreationDate>02/15/2011 18:00:37</mappingCreationDate>
+          <mappingModifiedDate>02/22/2011 11:03:54</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>Root</name>
+               <schemaName>XMLSchema_for_Routing</schemaName>
+               <schemaID>XMLSchema:192168001204129724704562600029</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>XLSC_Routing</schemaName>
+               <schemaID>ExcelSchema:192168001204129777293497100002</schemaID>
+               <stream>output_2</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/BookID</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/@id</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="BookID">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/BookID" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/@id" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/@id" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/@id" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Author</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/author</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Author">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Author" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/author" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/author" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/author" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Title</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/title</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Title">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Title" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/title" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/title" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/title" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Genre</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/genre</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Genre">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Genre" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/genre" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/genre" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/genre" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Price</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/price</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Price">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Price" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/price" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/price" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/price" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Publish_Date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/publish_date</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Publish_Date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Publish_Date" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/publish_date" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/publish_date" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/publish_date" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record/Description</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>$Input_XMLSchema_for_Routing/Root/catalog/book/description</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Description">
+               <Position height="25" identify="&lt;T>" label="/Root/Record/Description" mapString="$Input_XMLSchema_for_Routing/Root/catalog/book/description" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </TargetLines>
+               </Position>
+               <Position height="25" identify="&lt;S>" label="$Input_XMLSchema_for_Routing/Root/catalog/book/description" mapString="&lt;S>$Input_XMLSchema_for_Routing/Root/catalog/book/description" x="20" y="10">
+                    <SourceLines>
+                         <Line x1="100.0" y1="22.0" x2="280.0" y2="22.0"/>
+                    </SourceLines>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>XLSC_Routing</targetName>
+          <dest>/Root/Record</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_XMLSchema_for_Routing/Root/catalog/book</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record">
+               <Position height="25" identify="&lt;T>" label="/Root/Record" mapString="&lt;T>/Root/Record" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+     <characterSetEncoding></characterSetEncoding>
+     <tipOfTheDay>true</tipOfTheDay>
+     <contextSchemaLoadedAtSource>false</contextSchemaLoadedAtSource>
+     <contextSchemaLoadedAtTarget>false</contextSchemaLoadedAtTarget>
+     <contextSchemaDefinition></contextSchemaDefinition>
+</maps>]]></au_mapXmlFile>
+        <au_entityName><![CDATA[MapBookDetailsFromXMLtoExcel]]></au_entityName>
+        <au_id><![CDATA[192168001204129777303730000004]]></au_id>
+        <au_targetSchema><![CDATA[ExcelSchema:192168001204129777293497100002]]></au_targetSchema>
+        <au_dbInfoName><![CDATA[]]></au_dbInfoName>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_customAutoMap><![CDATA[null]]></au_customAutoMap>
+        <au_sourceSchema><![CDATA[XMLSchema:192168001204129724704562600029]]></au_sourceSchema>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+        <au_creationDate><![CDATA[2011-02-15 18:00:37.0]]></au_creationDate>
+        <au_xslTransformer><![CDATA[null]]></au_xslTransformer>
+        <au_reusable><![CDATA[null]]></au_reusable>
+        <au_description><![CDATA[Mapping for book details from XML format to Excel format.]]></au_description>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001204129836975229500020]]></au_modifiedBy>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:java="http://xml.apache.org/xslt/java" xmlns:xalan="http://xml.apache.org/xalan"  xmlns:str="http://exslt.org/strings" xmlns:redirect="org.apache.xalan.xslt.extensions.Redirect" extension-element-prefixes="redirect" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/><xsl:variable name="Input_XMLSchema_for_Routing" select="document($_Input1)"/> <xsl:variable name="varConn" select="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor.getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><xsl:for-each select = "$Input_XMLSchema_for_Routing/Root/catalog/book"><Record><xsl:attribute name="recordNumber"></xsl:attribute><BookID><xsl:value-of select="./@id"/></BookID><Author><xsl:value-of select="author"/></Author><Title><xsl:value-of select="title"/></Title><Genre><xsl:value-of select="genre"/></Genre><Price><xsl:value-of select="price"/></Price><Publish_Date><xsl:value-of select="publish_date"/></Publish_Date><Description><xsl:value-of select="description"/></Description></Record></xsl:for-each></Root></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules8902571113817640246.pdf]]></au_pdfFileName>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001204129836958416800018]]></au_groupOwner>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_json><![CDATA[null]]></au_json>
+        <au_optimizedLoading><![CDATA[false]]></au_optimizedLoading>
+        <au_version><![CDATA[1]]></au_version>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
