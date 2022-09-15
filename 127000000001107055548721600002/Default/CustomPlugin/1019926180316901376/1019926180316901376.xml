@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_SCRIPTEDSERVICE>
+        <au_creationDate><![CDATA[2022-09-15 16:32:30.0]]></au_creationDate>
+        <au_version><![CDATA[1]]></au_version>
+        <au_entityName><![CDATA[GIT_Custom_Plugin]]></au_entityName>
+        <au_projectOwner><![CDATA[Default]]></au_projectOwner>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_variablesXML><![CDATA[<variables>
+</variables>
+]]></au_variablesXML>
+        <au_modifiedDate><![CDATA[2022-09-15 16:34:34.0]]></au_modifiedDate>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
+        <au_interpreterType><![CDATA[0]]></au_interpreterType>
+        <au_id><![CDATA[1019926180316901376]]></au_id>
+        <au_permissionMask><![CDATA[770]]></au_permissionMask>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_description><![CDATA[GIT_Custom_Plugin]]></au_description>
+        <au_encodingUsed><![CDATA[UTF-8]]></au_encodingUsed>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_script><![CDATA[import 
+com.adeptia.indigo.versioncontrol.ClientFactory;
+long t = System.currentTimeMillis();
+ClientFactory.getClient().getLatestRevision("192168001205130027715287200007","Default", "192168001075140377772225800009", "DataMapping");
+System.out.println("Time Taken: ":System.currentTimeMillis()-t);]]></au_script>
+        <au_showHideFlag><![CDATA[false]]></au_showHideFlag>
+    </AU_SCRIPTEDSERVICE>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_script" type="12"/>
+        <column name="au_showHideFlag" type="-7"/>
+        <column name="au_variablesXML" type="12"/>
+        <column name="au_encodingUsed" type="12"/>
+        <column name="au_interpreterType" type="4"/>
+    </columnInfo>
+</data>
