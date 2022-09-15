@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_modifiedDate><![CDATA[2009-08-28 15:32:30.0]]></au_modifiedDate>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_entityName><![CDATA[DM_Invoice_EDI_AdvPosc_PartnerA]]></au_entityName>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_characterSetEncoding><![CDATA[null]]></au_characterSetEncoding>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>DM_Invoice_EDI_AdvPosc_PartnerA</mappingName>
+          <mappingDescription>data mapping for Partner A invoice</mappingDescription>
+          <sourceSchemaID>EDISchema:192168001159124592746987500002</sourceSchemaID>
+          <targetSchemaID>AdvancePositionalSchema:192168001159124592750325000004</targetSchemaID>
+          <mappingOwnerGroup>EDIDemo</mappingOwnerGroup>
+          <mappingOwner>EDIUser</mappingOwner>
+          <mappingLastModifiedBy>EDIUser</mappingLastModifiedBy>
+          <mappingCreationDate>08/20/2009 17:06:33</mappingCreationDate>
+          <mappingModifiedDate>08/24/2009 14:34:35</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>EDIRoot</name>
+               <schemaName>EDI_810_v4010</schemaName>
+               <schemaID>EDISchema:192168001159124592746987500002</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>AdvPos_Invoice</schemaName>
+               <schemaID>AdvancePositionalSchema:192168001159124592750325000004</schemaID>
+               <stream>output_1</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Header</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>'HDR'</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Header">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Header" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Header" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Invoice</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02) )&lt;=6  } VALUE=[  substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02,'      ' ),1 ,6 )  ] OTHERWISE VALUE=['      ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Invoice">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Invoice" mapString="&lt;T>/Root/Record_ID_Header-HDR/Invoice" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Invoice_Date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($_VarInvoiceDate ) !='' and string-length(normalize-space($_VarInvoiceDate ) )&lt;=10  } VALUE=[  substring(  concat( $_VarInvoiceDate,'          ' ),1 ,10 )  ] OTHERWISE VALUE=['          ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables>
+               <localVariable>
+                    <lname>$_VarInvoiceDate</lname>
+                    <lvalue>date-format($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG01 ,'yyyyMMdd' , 'M/dd/yyyy')</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+          </localVariables>
+          <Sorting/>
+          <Target name="Invoice_Date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Invoice_Date" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/PO_Date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($_varPOdate ) !='' and string-length(normalize-space($_varPOdate ) )&lt;=10  } VALUE=[  substring(  concat( $_varPOdate,'          ' ),1 ,10 )  ] OTHERWISE VALUE=['          ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables>
+               <localVariable>
+                    <lname>$_varPOdate</lname>
+                    <lvalue>date-format($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG03 ,'yyyyMMdd' , 'M/dd/yyyy')</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+          </localVariables>
+          <Sorting/>
+          <Target name="PO_Date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/PO_Date" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Shipment_Date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($_varShipmentdate ) !='' and string-length(normalize-space($_varShipmentdate ) )&lt;=10  } VALUE=[  substring(  concat( $_varShipmentdate,'          ' ),1 ,10 )  ] OTHERWISE VALUE=['          ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables>
+               <localVariable>
+                    <lname>$_varShipmentdate</lname>
+                    <lvalue>date-format($Input_EDI_810_v4010/EDIRoot/TS_810/DTM/DTM02,'yyyyMMdd' , 'M/dd/yyyy')</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+          </localVariables>
+          <Sorting/>
+          <Target name="Shipment_Date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Shipment_Date" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Customer_PO_Number</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04) )&lt;=20  } VALUE=[  substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04,'                    ' ),1 ,20 )  ] OTHERWISE VALUE=['                    ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Customer_PO_Number">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Customer_PO_Number" mapString="&lt;T>/Root/Record_ID_Header-HDR/Customer_PO_Number" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Vendor_Number</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02) )&lt;=15  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02,'                    ' ),1 ,15 )  ] OTHERWISE VALUE=['                    ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Vendor_Number">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Vendor_Number" mapString="&lt;T>/Root/Record_ID_Header-HDR/Vendor_Number" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Store_Number</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) )&lt;=5  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104,'     ' ),1 ,5 )  ] OTHERWISE VALUE=['     ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Store_Number">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Store_Number" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Invoice_Total_Amount</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01) )&lt;=11  } VALUE=[  substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01,'           ' ),1 ,11)  ] OTHERWISE VALUE=['           ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Invoice_Total_Amount">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Invoice_Total_Amount" mapString="&lt;T>/Root/Record_ID_Header-HDR/Invoice_Total_Amount" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Weight</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03) )&lt;=6  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03,'      ' ),1 ,6)  ] OTHERWISE VALUE=['      ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Weight">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Weight" mapString="&lt;T>/Root/Record_ID_Header-HDR/Weight" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Total_Cartons</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01) )&lt;=7  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01,'       ' ),1 ,7)  ] OTHERWISE VALUE=['       ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Total_Cartons">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Total_Cartons" mapString="&lt;T>/Root/Record_ID_Header-HDR/Total_Cartons" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Ship_To_GLN</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) )&lt;=13  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104,'             ' ),1 ,13 )  ] OTHERWISE VALUE=['             ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Ship_To_GLN">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Ship_To_GLN" mapString="&lt;T>/Root/Record_ID_Header-HDR/Ship_To_GLN" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Record_ID_Detail</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>'DTL'</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Detail">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Record_ID_Detail" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Record_ID_Detail" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Quantity_Invoiced</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT102 ) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT102) )&lt;=8  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT102,'        ' ),1 ,8 )  ] OTHERWISE VALUE=['        ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Quantity_Invoiced">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Quantity_Invoiced" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Quantity_Invoiced" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/UPC</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT107) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT107) )&lt;=14  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT107,'              ' ),1 ,14 )  ] OTHERWISE VALUE=['              ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="UPC">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/UPC" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/UPC" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Price</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>WHEN CONDITION{ normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT104) !='' and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT104) )&lt;=9  } VALUE=[  substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1/IT104,'         ' ),1 ,9 )  ] OTHERWISE VALUE=['         ' ]</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Price">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Price" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL/Price" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Invoice</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Detail-DTL">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Detail-DTL" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+</maps>]]></au_mapXmlFile>
+        <au_permissionMask><![CDATA[750]]></au_permissionMask>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_xslTransformer><![CDATA[null]]></au_xslTransformer>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:java="http://xml.apache.org/xslt/java" xmlns:xalan="http://xml.apache.org/xalan"  xmlns:str="http://exslt.org/strings" xmlns:redirect="org.apache.xalan.xslt.extensions.Redirect" extension-element-prefixes="redirect" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/><xsl:variable name="Input_EDI_810_v4010" select="document($_Input1)"/> <xsl:variable name="varConn" select="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor.getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><Record_ID_Header-HDR><xsl:attribute name="isRemovedHeader"></xsl:attribute><xsl:attribute name="recordNumber"></xsl:attribute><Record_ID_Header><xsl:value-of select="&apos;HDR&apos;"/></Record_ID_Header><Invoice><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02 ) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02) )&lt;=6"><xsl:value-of select="substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG02,&apos;      &apos; ),1 ,6 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;      &apos;"/></xsl:otherwise></xsl:choose></Invoice><Invoice_Date><xsl:variable  name='_VarInvoiceDate'><xsl:value-of select="java:com.adeptia.indigo.services.mapping.MappingTransformation.processDateFormat($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG01,'yyyyMMdd','M/dd/yyyy')"/></xsl:variable><xsl:choose><xsl:when test="normalize-space($_VarInvoiceDate ) !=&apos;&apos; and string-length(normalize-space($_VarInvoiceDate ) )&lt;=10"><xsl:value-of select="substring(  concat( $_VarInvoiceDate,&apos;          &apos; ),1 ,10 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;          &apos;"/></xsl:otherwise></xsl:choose></Invoice_Date><PO_Date><xsl:variable  name='_varPOdate'><xsl:value-of select="java:com.adeptia.indigo.services.mapping.MappingTransformation.processDateFormat($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG03,'yyyyMMdd','M/dd/yyyy')"/></xsl:variable><xsl:choose><xsl:when test="normalize-space($_varPOdate ) !=&apos;&apos; and string-length(normalize-space($_varPOdate ) )&lt;=10"><xsl:value-of select="substring(  concat( $_varPOdate,&apos;          &apos; ),1 ,10 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;          &apos;"/></xsl:otherwise></xsl:choose></PO_Date><Shipment_Date><xsl:variable  name='_varShipmentdate'><xsl:value-of select="java:com.adeptia.indigo.services.mapping.MappingTransformation.processDateFormat($Input_EDI_810_v4010/EDIRoot/TS_810/DTM/DTM02,'yyyyMMdd','M/dd/yyyy')"/></xsl:variable><xsl:choose><xsl:when test="normalize-space($_varShipmentdate ) !=&apos;&apos; and string-length(normalize-space($_varShipmentdate ) )&lt;=10"><xsl:value-of select="substring(  concat( $_varShipmentdate,&apos;          &apos; ),1 ,10 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;          &apos;"/></xsl:otherwise></xsl:choose></Shipment_Date><Department_Number></Department_Number><Customer_Number></Customer_Number><Customer_PO_Number><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04 ) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04) )&lt;=20"><xsl:value-of select="substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/BIG/BIG04,&apos;                    &apos; ),1 ,20 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;                    &apos;"/></xsl:otherwise></xsl:choose></Customer_PO_Number><Vendor_Number><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02 ) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02) )&lt;=15"><xsl:value-of select="substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/REF/REF02,&apos;                    &apos; ),1 ,15 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;                    &apos;"/></xsl:otherwise></xsl:choose></Vendor_Number><Store_Number><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) )&lt;=5"><xsl:value-of select="substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104,&apos;     &apos; ),1 ,5 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;     &apos;"/></xsl:otherwise></xsl:choose></Store_Number><Vendor_Name></Vendor_Name><Terms_Type_Code></Terms_Type_Code><Terms_Discount></Terms_Discount><Terms_Disc_Days></Terms_Disc_Days><Invoice_Due_Date></Invoice_Due_Date><Invoice_Total_Amount><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01 ) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01) )&lt;=11"><xsl:value-of select="substring(  concat( $Input_EDI_810_v4010/EDIRoot/TS_810/TDS/TDS01,&apos;           &apos; ),1 ,11)"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;           &apos;"/></xsl:otherwise></xsl:choose></Invoice_Total_Amount><Invoice_Total_Quantity></Invoice_Total_Quantity><SCAC></SCAC><Carrier_Name></Carrier_Name><Routing_Type></Routing_Type><Freight_Amount></Freight_Amount><Discount_Amount></Discount_Amount><Manifest_Number></Manifest_Number><Weight><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03 ) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03) )&lt;=6"><xsl:value-of select="substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS03,&apos;      &apos; ),1 ,6)"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;      &apos;"/></xsl:otherwise></xsl:choose></Weight><DUNS></DUNS><Distribution_Center_Ship_To></Distribution_Center_Ship_To><Total_Cartons><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01) )&lt;=7"><xsl:value-of select="substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop15_ISS/ISS/ISS01,&apos;       &apos; ),1 ,7)"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;       &apos;"/></xsl:otherwise></xsl:choose></Total_Cartons><Terms_NetDays></Terms_NetDays><Ship_From_Name></Ship_From_Name><Ship_From_City></Ship_From_City><Ship_From_State></Ship_From_State><Ship_From_Zip></Ship_From_Zip><Merchandise_Amount></Merchandise_Amount><Total_Inv_Net_Terms_Disc></Total_Inv_Net_Terms_Disc><Vendor_Address_1></Vendor_Address_1><Vendor_Address_2></Vendor_Address_2><Vendor_City></Vendor_City><Vendor_State></Vendor_State><Vendor_Zip></Vendor_Zip><Ship_To_Name></Ship_To_Name><Ship_To_Address_1></Ship_To_Address_1><Ship_To_Address_2></Ship_To_Address_2><Ship_To_City></Ship_To_City><Ship_To_State></Ship_To_State><Ship_To_Zip></Ship_To_Zip><Terms_Discount_Amount></Terms_Discount_Amount><Picking_Ticket_Number></Picking_Ticket_Number><Vendor_Phone_Number></Vendor_Phone_Number><Remit_To_Name></Remit_To_Name><Remit_To_Address_1></Remit_To_Address_1><Remit_To_Address_2></Remit_To_Address_2><Remit_To_City></Remit_To_City><Remit_To_State></Remit_To_State><Remit_To_Zip></Remit_To_Zip><Ship_To_Location></Ship_To_Location><Store_Name></Store_Name><Store_Address_1></Store_Address_1><Store_Address_2></Store_Address_2><Store_City></Store_City><Store_State></Store_State><Store_Zip></Store_Zip><Customer_Header_Ref_1></Customer_Header_Ref_1><Customer_Header_Ref_2></Customer_Header_Ref_2><Customer_Header_Ref_3></Customer_Header_Ref_3><Terms_Description></Terms_Description><Transportation_Mode></Transportation_Mode><Ship_To_GLN><xsl:choose><xsl:when test="normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) !=&apos;&apos; and string-length(normalize-space($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104) )&lt;=13"><xsl:value-of select="substring(  concat($Input_EDI_810_v4010/EDIRoot/TS_810/Loop1_N1/N1/N104,&apos;             &apos; ),1 ,13 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;             &apos;"/></xsl:otherwise></xsl:choose></Ship_To_GLN><Ship_to_Address_3></Ship_to_Address_3><Ship_to_Address_4></Ship_to_Address_4><Remit_to_Address_3></Remit_to_Address_3><Remit_to_Address_4></Remit_to_Address_4><Store_Address_3></Store_Address_3><Store_Address_4></Store_Address_4><Vendor_Address_3></Vendor_Address_3><Vendor_Address_4></Vendor_Address_4><xsl:for-each select = "$Input_EDI_810_v4010/EDIRoot/TS_810/Loop6_IT1/IT1"><Record_ID_Detail-DTL><xsl:attribute name="isRemovedHeader"></xsl:attribute><xsl:attribute name="recordNumber"></xsl:attribute><Record_ID_Detail><xsl:value-of select="&apos;DTL&apos;"/></Record_ID_Detail><Quantity_Invoiced><xsl:choose><xsl:when test="normalize-space(IT102 ) !=&apos;&apos; and string-length(normalize-space(IT102) )&lt;=8"><xsl:value-of select="substring(  concat(IT102,&apos;        &apos; ),1 ,8 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;        &apos;"/></xsl:otherwise></xsl:choose></Quantity_Invoiced><Style></Style><UPC><xsl:choose><xsl:when test="normalize-space(IT107) !=&apos;&apos; and string-length(normalize-space(IT107) )&lt;=14"><xsl:value-of select="substring(  concat(IT107,&apos;              &apos; ),1 ,14 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;              &apos;"/></xsl:otherwise></xsl:choose></UPC><Product_ID></Product_ID><Price><xsl:choose><xsl:when test="normalize-space(IT104) !=&apos;&apos; and string-length(normalize-space(IT104) )&lt;=9"><xsl:value-of select="substring(  concat(IT104,&apos;         &apos; ),1 ,9 )"/></xsl:when><xsl:otherwise><xsl:value-of select="&apos;         &apos;"/></xsl:otherwise></xsl:choose></Price><Style_Description></Style_Description><Line_Number></Line_Number><Color_Description></Color_Description><Size_Description></Size_Description><Customer_Detail_Ref_1></Customer_Detail_Ref_1><Customer_Detail_Ref_2></Customer_Detail_Ref_2><Customer_Detail_Ref_3></Customer_Detail_Ref_3><Customer_Detail_Ref_4></Customer_Detail_Ref_4><Customer_Detail_Ref_5></Customer_Detail_Ref_5><UOM></UOM><Kmart_KSN></Kmart_KSN><Color_Code></Color_Code></Record_ID_Detail-DTL></xsl:for-each></Record_ID_Header-HDR></Root></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_sourceSchema><![CDATA[EDISchema:192168001159124592746987500002]]></au_sourceSchema>
+        <au_version><![CDATA[1]]></au_version>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules6669.pdf]]></au_pdfFileName>
+        <au_dbInfoName><![CDATA[ ]]></au_dbInfoName>
+        <au_json><![CDATA[null]]></au_json>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001247124695270123400003]]></au_groupOwner>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_targetSchema><![CDATA[AdvancePositionalSchema:192168001159124592750325000004]]></au_targetSchema>
+        <au_userOwner><![CDATA[IndigoUser:192168001247124695334028100006]]></au_userOwner>
+        <au_valueMap><![CDATA[null]]></au_valueMap>
+        <au_description><![CDATA[Data mapping for Partner A invoice]]></au_description>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+        <au_creationDate><![CDATA[2009-08-20 17:06:33.0]]></au_creationDate>
+        <au_id><![CDATA[192168001034125076819396500020]]></au_id>
+        <au_reusable><![CDATA[null]]></au_reusable>
+        <au_previousVersion><![CDATA[ ]]></au_previousVersion>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_synchronized><![CDATA[null]]></au_synchronized>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_xslTemplate><![CDATA[null]]></au_xslTemplate>
+        <au_customAutoMap><![CDATA[null]]></au_customAutoMap>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_optimizedLoading><![CDATA[true]]></au_optimizedLoading>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
