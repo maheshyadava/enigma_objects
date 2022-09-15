@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <AU_MAPPINGTRANSFORMATION>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_entityName><![CDATA[DM_Order_EDIFACT_AdvPosc_PartnerC]]></au_entityName>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_metadata><![CDATA[null]]></au_metadata>
+        <au_xslFile><![CDATA[<?xml version='1.0'?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.1" xmlns:java="http://xml.apache.org/xslt/java" xmlns:xalan="http://xml.apache.org/xalan"  xmlns:str="http://exslt.org/strings" xmlns:redirect="org.apache.xalan.xslt.extensions.Redirect" extension-element-prefixes="redirect" >
+<xsl:output method="xml" version="1.0" encoding="ISO-8859-1" indent="yes" /><xsl:param name="_userName"/><xsl:param name="_password"/><xsl:param name="_class"/><xsl:param name="_identifier"/><xsl:param name="_subject"/><xsl:param name="_repositoryPath"/><xsl:param name="_Input1"/><xsl:variable name="Input_EDIFact_ORDERSSchema" select="document($_Input1)"/> <xsl:variable name="varConn" select="java:com.adeptia.indigo.services.mapping.support.dbquery.MapperQueryExecutor.getInstance($_identifier,'false')"/> <xsl:variable name="apos">'</xsl:variable><xsl:template match="/"><Root><xsl:for-each select = "$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS"><Record_ID_Header-HDR><xsl:attribute name="isRemovedHeader"></xsl:attribute><xsl:attribute name="recordNumber"></xsl:attribute><Record_ID_Header><xsl:value-of select="&apos;HDR&apos;"/></Record_ID_Header><Order_ID><xsl:value-of select="normalize-space(BGM/BGM02 )"/></Order_ID><xsl:for-each select = "DTM"><xsl:if test="normalize-space( DTM01/DTM0101) = &apos;4&apos;">
+<Order_date><xsl:variable  name='varDate' select = "normalize-space(DTM01/DTM0102 )"/><xsl:variable  name='order_Date'><xsl:value-of select="java:com.adeptia.indigo.services.mapping.MappingTransformation.processDateFormat($varDate,'yyyyMMdd','yyyy-MM-dd')"/></xsl:variable><xsl:value-of select="$order_Date"/></Order_date></xsl:if></xsl:for-each><xsl:for-each select = "DTM"><xsl:if test="normalize-space( DTM01/DTM0101) = &apos;2&apos;">
+<RequestedDelivery_date><xsl:variable  name='varDate' select = "normalize-space(DTM01/DTM0102 )"/><xsl:variable  name='order_Date'><xsl:value-of select="java:com.adeptia.indigo.services.mapping.MappingTransformation.processDateFormat($varDate,'yyyyMMdd','yyyy-MM-dd')"/></xsl:variable><xsl:value-of select="$order_Date"/></RequestedDelivery_date></xsl:if></xsl:for-each><Customer_Detail_Reference><xsl:value-of select="normalize-space(Loop1_RFF/RFF/RFF01/RFF0102 )"/></Customer_Detail_Reference><Currency_Detail><xsl:value-of select="normalize-space(Loop7_CUX/CUX/CUX01/CUX0102 )"/></Currency_Detail><xsl:for-each select = "Loop2_NAD"><Record_ID_Party-PRT><xsl:attribute name="isRemovedHeader"></xsl:attribute><xsl:attribute name="recordNumber"></xsl:attribute><Record_ID_Party><xsl:value-of select="&apos;PRT&apos;"/></Record_ID_Party><Party_ID><xsl:value-of select="normalize-space( NAD/NAD02/NAD0201)"/></Party_ID><Party_Type><xsl:value-of select="normalize-space(NAD/NAD01 )"/></Party_Type><Party_Address><xsl:value-of select="normalize-space(NAD/NAD03/NAD0301 )"/></Party_Address><Party_City><xsl:value-of select="normalize-space(NAD/NAD06 )"/></Party_City><Party_Postal><xsl:value-of select="normalize-space(NAD/NAD08 )"/></Party_Postal><Party_Country><xsl:value-of select="normalize-space(NAD/NAD09 )"/></Party_Country></Record_ID_Party-PRT></xsl:for-each><xsl:for-each select = "Loop25_LIN"><Record_ID_Item-ITE><xsl:attribute name="isRemovedHeader"></xsl:attribute><xsl:attribute name="recordNumber"></xsl:attribute><Record_ID_Item><xsl:value-of select="&apos;ITE&apos;"/></Record_ID_Item><Item_IdentificationNumber><xsl:value-of select="normalize-space(LIN/LIN03/LIN0301 )"/></Item_IdentificationNumber><Item_Type><xsl:value-of select="normalize-space(LIN/LIN03/LIN0302 )"/></Item_Type><Quantity_Ordered><xsl:value-of select="normalize-space(QTY/QTY01/QTY0102 )"/></Quantity_Ordered><xsl:for-each select = "LoopLIN_PRI"><xsl:if test="contains(normalize-space(PRI/PRI01/PRI0101 ) ,&apos;AAA&apos; )">
+<Net_Price><xsl:value-of select="normalize-space(PRI/PRI01/PRI0102 )"/></Net_Price></xsl:if></xsl:for-each><xsl:for-each select = "LoopLIN_PRI"><xsl:if test="contains(normalize-space(PRI/PRI01/PRI0101 ) ,&apos;AAB&apos; )">
+<Gross_Price><xsl:value-of select="normalize-space(PRI/PRI01/PRI0102 )"/></Gross_Price></xsl:if></xsl:for-each></Record_ID_Item-ITE></xsl:for-each></Record_ID_Header-HDR></xsl:for-each></Root></xsl:template></xsl:stylesheet>]]></au_xslFile>
+        <au_modifiedDate><![CDATA[2010-10-28 19:12:59.0]]></au_modifiedDate>
+        <au_groupOwner><![CDATA[IndigoGroup:192168001247124695270123400003]]></au_groupOwner>
+        <au_xslTransformer><![CDATA[null]]></au_xslTransformer>
+        <au_id><![CDATA[192168001230128498768609700003]]></au_id>
+        <au_splitFile><![CDATA[false]]></au_splitFile>
+        <au_aimapTrained><![CDATA[null]]></au_aimapTrained>
+        <au_userOwner><![CDATA[IndigoUser:192168001247124695334028100006]]></au_userOwner>
+        <au_xslTemplate><![CDATA[null]]></au_xslTemplate>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_sourceSchema><![CDATA[EDISchema:192168001205128330397304100014]]></au_sourceSchema>
+        <au_description><![CDATA[Map Order in EDIFACT to Adv. Positional]]></au_description>
+        <au_synchronized><![CDATA[null]]></au_synchronized>
+        <au_aimapFreeze><![CDATA[null]]></au_aimapFreeze>
+        <au_version><![CDATA[1]]></au_version>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_pdfFileName><![CDATA[Adp_Map_Rules4391215676777640169.pdf]]></au_pdfFileName>
+        <au_targetSchema><![CDATA[AdvancePositionalSchema:192168001230128826287237300022]]></au_targetSchema>
+        <au_enableAIMap><![CDATA[null]]></au_enableAIMap>
+        <au_dbInfoName><![CDATA[]]></au_dbInfoName>
+        <au_valueMap><![CDATA[null]]></au_valueMap>
+        <au_json><![CDATA[null]]></au_json>
+        <au_characterSetEncoding><![CDATA[null]]></au_characterSetEncoding>
+        <au_numberOfRecords><![CDATA[500]]></au_numberOfRecords>
+        <au_parallelProcessing><![CDATA[false]]></au_parallelProcessing>
+        <au_permissionMask><![CDATA[750]]></au_permissionMask>
+        <au_customAutoMap><![CDATA[null]]></au_customAutoMap>
+        <au_reusable><![CDATA[null]]></au_reusable>
+        <au_storedProcedure><![CDATA[null]]></au_storedProcedure>
+        <au_optimizedLoading><![CDATA[true]]></au_optimizedLoading>
+        <au_persistDataEnabled><![CDATA[false]]></au_persistDataEnabled>
+        <au_mapXmlFile><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<maps version="4.4">
+     <mappingInformation>
+          <mappingVersion>4.4</mappingVersion>
+          <mappingName>DM_Order_EDIFACT_AdvPosc_PartnerC</mappingName>
+          <mappingDescription>Map Order in EDIFACT to Adv. Positional</mappingDescription>
+          <sourceSchemaID>EDISchema:192168001205128330397304100014</sourceSchemaID>
+          <targetSchemaID>AdvancePositionalSchema:192168001230128826287237300022</targetSchemaID>
+          <mappingOwnerGroup>EDIDemo</mappingOwnerGroup>
+          <mappingOwner>EDIUser</mappingOwner>
+          <mappingLastModifiedBy>EDIUser</mappingLastModifiedBy>
+          <mappingCreationDate>09/20/2010 18:31:26</mappingCreationDate>
+          <mappingModifiedDate>10/28/2010 19:13:00</mappingModifiedDate>
+     </mappingInformation>
+     <sourceRoots>
+          <sourceRoot>
+               <name>EDIRoot</name>
+               <schemaName>EDIFact_ORDERSSchema</schemaName>
+               <schemaID>EDISchema:192168001205128330397304100014</schemaID>
+          </sourceRoot>
+     </sourceRoots>
+     <targetRoots>
+          <targetRoot>
+               <name>Root</name>
+               <schemaName>AdvPos_Order</schemaName>
+               <schemaID>AdvancePositionalSchema:192168001230128826287237300022</schemaID>
+               <stream>output_2</stream>
+          </targetRoot>
+     </targetRoots>
+     <nameSpace/>
+     <xslProperty/>
+     <sourceXpath/>
+     <targetXpath/>
+     <xslTemplates/>
+     <globalParameters/>
+     <GlobalPreCustomXSL/>
+     <GlobalPostCustomXSL/>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Header</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>'HDR'</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Header">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Header" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Order_ID</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/BGM/BGM02 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Order_ID">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Order_ID" mapString="&lt;T>/Root/Record_ID_Header-HDR/Order_ID" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Order_date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>IFF CONDITION{normalize-space( $Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM/DTM01/DTM0101) = '4'} VALUE=[$order_Date ]
+
+</mapValue>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables>
+               <localVariable>
+                    <lname>$varDate</lname>
+                    <lvalue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM/DTM01/DTM0102 )</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+               <localVariable>
+                    <lname>$order_Date</lname>
+                    <lvalue>date-format( $varDate, 'yyyyMMdd','yyyy-MM-dd' )</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+          </localVariables>
+          <Sorting/>
+          <Target name="Order_date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Order_date" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/RequestedDelivery_date</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>IFF CONDITION{normalize-space( $Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM/DTM01/DTM0101) = '2'} VALUE=[$order_Date ]  </mapValue>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables>
+               <localVariable>
+                    <lname>$varDate</lname>
+                    <lvalue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/DTM/DTM01/DTM0102 )</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+               <localVariable>
+                    <lname>$order_Date</lname>
+                    <lvalue>date-format( $varDate, 'yyyyMMdd','yyyy-MM-dd' )</lvalue>
+                    <lcomment></lcomment>
+               </localVariable>
+          </localVariables>
+          <Sorting/>
+          <Target name="RequestedDelivery_date">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/RequestedDelivery_date" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Customer_Detail_Reference</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop1_RFF/RFF/RFF01/RFF0102 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Customer_Detail_Reference">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Customer_Detail_Reference" mapString="&lt;T>/Root/Record_ID_Header-HDR/Customer_Detail_Reference" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Currency_Detail</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop7_CUX/CUX/CUX01/CUX0102 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Currency_Detail">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Currency_Detail" mapString="&lt;T>/Root/Record_ID_Header-HDR/Currency_Detail" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Record_ID_Party</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>'PRT'</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Party">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Record_ID_Party" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Record_ID_Party" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_ID</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space( $Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD02/NAD0201)</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_ID">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_ID" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_ID" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Type</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD01 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_Type">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Type" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Type" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Address</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD03/NAD0301 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_Address">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Address" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Address" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_City</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD06 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_City">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_City" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_City" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Postal</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD08 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_Postal">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Postal" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Postal" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Country</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD/NAD/NAD09 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Party_Country">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Country" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT/Party_Country" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop2_NAD</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Party-PRT">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Party-PRT" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Party-PRT" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Record_ID_Item</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>'ITE'</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Item">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Record_ID_Item" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Record_ID_Item" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_IdentificationNumber</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LIN/LIN03/LIN0301 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Item_IdentificationNumber">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_IdentificationNumber" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_IdentificationNumber" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_Type</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LIN/LIN03/LIN0302 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Item_Type">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_Type" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Item_Type" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Quantity_Ordered</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/QTY/QTY01/QTY0102 )</mapValue>
+          <forEach/>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Quantity_Ordered">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Quantity_Ordered" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Quantity_Ordered" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Net_Price</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>IFF CONDITION{ contains(normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI/PRI/PRI01/PRI0101 ) ,'AAA' )  } VALUE=[normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI/PRI/PRI01/PRI0102 ) ]</mapValue>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Net_Price">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Net_Price" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Net_Price" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Gross_Price</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue>IFF CONDITION{ contains(normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI/PRI/PRI01/PRI0101 ) ,'AAB' )  } VALUE=[normalize-space($Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI/PRI/PRI01/PRI0102 ) ]</mapValue>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN/LoopLIN_PRI</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Gross_Price">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE/Gross_Price" mapString="" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS/Loop25_LIN</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Item-ITE">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR/Record_ID_Item-ITE" mapString="&lt;T>/Root/Record_ID_Header-HDR/Record_ID_Item-ITE" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <map>
+          <order>1</order>
+          <targetName>AdvPos_Order</targetName>
+          <dest>/Root/Record_ID_Header-HDR</dest>
+          <preCustomXSL/>
+          <postCustomXSL/>
+          <mapValue/>
+          <forEach>$Input_EDIFact_ORDERSSchema/EDIRoot/TS_ORDERS</forEach>
+          <comments/>
+          <namespacePrefix/>
+          <localVariables/>
+          <Sorting/>
+          <Target name="Record_ID_Header-HDR">
+               <Position height="25" identify="&lt;T>" label="/Root/Record_ID_Header-HDR" mapString="&lt;T>/Root/Record_ID_Header-HDR" x="300" y="10">
+                    <SourceLines/>
+                    <TargetLines/>
+               </Position>
+          </Target>
+     </map>
+     <filters></filters>
+     <accessLevel>
+          <valueMap>global</valueMap>
+          <globalTemplate>global</globalTemplate>
+          <customAutoMap>global</customAutoMap>
+     </accessLevel>
+     <isQuickSplittingEnabled>false</isQuickSplittingEnabled>
+     <sourceExtensions></sourceExtensions>
+     <targetExtensions></targetExtensions>
+     <disableOutputNodes></disableOutputNodes>
+     <characterSetEncoding></characterSetEncoding>
+     <tipOfTheDay>false</tipOfTheDay>
+     <contextSchemaLoadedAtSource>false</contextSchemaLoadedAtSource>
+     <contextSchemaLoadedAtTarget>false</contextSchemaLoadedAtTarget>
+     <contextSchemaDefinition></contextSchemaDefinition>
+</maps>]]></au_mapXmlFile>
+        <au_concurrentProcessors><![CDATA[1]]></au_concurrentProcessors>
+        <au_creationDate><![CDATA[2010-09-20 18:31:26.0]]></au_creationDate>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+    </AU_MAPPINGTRANSFORMATION>
+    <columnInfo dbtype="0">
+        <column name="au_id" type="12"/>
+        <column name="au_version" type="12"/>
+        <column name="au_previousVersion" type="12"/>
+        <column name="au_activeVersion" type="-7"/>
+        <column name="au_entityName" type="12"/>
+        <column name="au_userOwner" type="12"/>
+        <column name="au_groupOwner" type="12"/>
+        <column name="au_permissionMask" type="12"/>
+        <column name="au_description" type="12"/>
+        <column name="au_comments" type="12"/>
+        <column name="au_modifiedBy" type="12"/>
+        <column name="au_creationDate" type="93"/>
+        <column name="au_modifiedDate" type="93"/>
+        <column name="au_revision" type="12"/>
+        <column name="au_synchronized" type="-7"/>
+        <column name="au_projectOwner" type="12"/>
+        <column name="au_persistDataEnabled" type="-7"/>
+        <column name="au_splitFile" type="-7"/>
+        <column name="au_numberOfRecords" type="4"/>
+        <column name="au_optimizedLoading" type="-7"/>
+        <column name="au_sourceSchema" type="12"/>
+        <column name="au_targetSchema" type="12"/>
+        <column name="au_xslFile" type="12"/>
+        <column name="au_metadata" type="12"/>
+        <column name="au_mapXmlFile" type="12"/>
+        <column name="au_json" type="12"/>
+        <column name="au_pdfFileName" type="12"/>
+        <column name="au_parallelProcessing" type="-7"/>
+        <column name="au_concurrentProcessors" type="4"/>
+        <column name="au_dbInfoName" type="12"/>
+        <column name="au_customAutoMap" type="12"/>
+        <column name="au_valueMap" type="12"/>
+        <column name="au_xslTemplate" type="12"/>
+        <column name="au_xslTransformer" type="12"/>
+        <column name="au_characterSetEncoding" type="12"/>
+        <column name="au_enableAIMap" type="-7"/>
+        <column name="au_reusable" type="-7"/>
+        <column name="au_storedProcedure" type="12"/>
+        <column name="au_aimapFreeze" type="-7"/>
+        <column name="au_aimapTrained" type="-7"/>
+    </columnInfo>
+</data>
