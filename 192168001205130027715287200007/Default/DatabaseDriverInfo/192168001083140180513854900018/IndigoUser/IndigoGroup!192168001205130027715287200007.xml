@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_GROUPS>
-        <au_description><![CDATA[This group contains DI Solution.]]></au_description>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_id><![CDATA[192168001205130027715287200007]]></au_id>
-        <au_entityName><![CDATA[DataInterface]]></au_entityName>
         <au_modifiedDate><![CDATA[2011-03-16 17:35:52.0]]></au_modifiedDate>
-        <au_revision><![CDATA[3f6f90e0d4e9be09d941d86e869071352c10f652]]></au_revision>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_id><![CDATA[192168001205130027715287200007]]></au_id>
         <au_webDavFolder><![CDATA[s]]></au_webDavFolder>
         <au_comments><![CDATA[null]]></au_comments>
-        <au_synchronized><![CDATA[true]]></au_synchronized>
-        <au_version><![CDATA[1]]></au_version>
-        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_previousVersion><![CDATA[]]></au_previousVersion>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_revision><![CDATA[3f6f90e0d4e9be09d941d86e869071352c10f652]]></au_revision>
         <au_title><![CDATA[]]></au_title>
-        <au_comment><![CDATA[]]></au_comment>
+        <au_entityName><![CDATA[DataInterface]]></au_entityName>
+        <au_version><![CDATA[1]]></au_version>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
         <au_creationDate><![CDATA[2011-03-16 17:35:52.0]]></au_creationDate>
-        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
-        <au_groupInfo><![CDATA[bp0C3kYBo6Eiv9cyJ9WjZt3WgmlYJA6weB9eiRJKhbBukYFq4fexJOYH8xePcIG4]]></au_groupInfo>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_comment><![CDATA[]]></au_comment>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
         <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_groupInfo><![CDATA[bp0C3kYBo6Eiv9cyJ9WjZt3WgmlYJA6weB9eiRJKhbBukYFq4fexJOYH8xePcIG4]]></au_groupInfo>
+        <au_synchronized><![CDATA[true]]></au_synchronized>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
+        <au_modifiedBy><![CDATA[IndigoUser:127000000001107055536473900001]]></au_modifiedBy>
+        <au_description><![CDATA[This group contains DI Solution.]]></au_description>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
     </AU_GROUPS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
