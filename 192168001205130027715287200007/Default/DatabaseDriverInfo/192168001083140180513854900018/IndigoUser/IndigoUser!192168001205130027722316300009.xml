@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
     <AU_USERS>
-        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
-        <au_modifiedBy><![CDATA[IndigoUser:192168001205130027722316300009]]></au_modifiedBy>
-        <au_modifiedDate><![CDATA[2011-03-25 11:09:53.0]]></au_modifiedDate>
-        <au_previousVersion><![CDATA[]]></au_previousVersion>
-        <au_orgUrl><![CDATA[]]></au_orgUrl>
-        <au_orgName><![CDATA[]]></au_orgName>
-        <au_projectOwner><![CDATA[null]]></au_projectOwner>
-        <au_description><![CDATA[diuser]]></au_description>
-        <au_comment><![CDATA[]]></au_comment>
-        <au_activateFlag><![CDATA[Activated]]></au_activateFlag>
-        <au_city><![CDATA[]]></au_city>
-        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
-        <au_phone><![CDATA[]]></au_phone>
-        <au_password><![CDATA[FTAi2rgMkUynuvpqpy5EqQ==]]></au_password>
-        <au_revision><![CDATA[null]]></au_revision>
-        <au_userType><![CDATA[developer]]></au_userType>
-        <au_webDavFolder><![CDATA[abc]]></au_webDavFolder>
-        <LOCKED_TIME><![CDATA[null]]></LOCKED_TIME>
-        <au_entityName><![CDATA[diuser]]></au_entityName>
-        <au_synchronized><![CDATA[false]]></au_synchronized>
-        <au_viewLevel><![CDATA[null]]></au_viewLevel>
-        <au_activeVersion><![CDATA[true]]></au_activeVersion>
-        <au_fax><![CDATA[]]></au_fax>
-        <AU_LASTMESSAGEVIEWED><![CDATA[null]]></AU_LASTMESSAGEVIEWED>
-        <AU_IMAGEIDENTIFIER><![CDATA[null]]></AU_IMAGEIDENTIFIER>
-        <PARTNER_OWNER><![CDATA[null]]></PARTNER_OWNER>
-        <au_comments><![CDATA[null]]></au_comments>
-        <au_manager><![CDATA[]]></au_manager>
-        <AU_READ_ONLY_ACCESS><![CDATA[null]]></AU_READ_ONLY_ACCESS>
-        <au_lastName><![CDATA[diuser]]></au_lastName>
-        <au_colleague><![CDATA[]]></au_colleague>
-        <AU_UNIQUEIDENTIFIER><![CDATA[null]]></AU_UNIQUEIDENTIFIER>
         <au_version><![CDATA[1]]></au_version>
-        <au_address1><![CDATA[]]></au_address1>
-        <au_country><![CDATA[]]></au_country>
+        <au_synchronized><![CDATA[false]]></au_synchronized>
+        <au_fax><![CDATA[]]></au_fax>
+        <au_activateFlag><![CDATA[Activated]]></au_activateFlag>
+        <AU_IMAGEIDENTIFIER><![CDATA[null]]></AU_IMAGEIDENTIFIER>
         <au_certificateStatus><![CDATA[false]]></au_certificateStatus>
-        <au_zip><![CDATA[]]></au_zip>
-        <au_address2><![CDATA[]]></au_address2>
-        <au_mobile><![CDATA[]]></au_mobile>
-        <au_state><![CDATA[]]></au_state>
-        <au_firstName><![CDATA[diuser]]></au_firstName>
         <au_keystorePassword><![CDATA[]]></au_keystorePassword>
-        <au_primaryGroup><![CDATA[IndigoGroup:192168001205130027715287200007]]></au_primaryGroup>
-        <au_userPermission><![CDATA[7]]></au_userPermission>
-        <au_permissionMask><![CDATA[777]]></au_permissionMask>
-        <au_sendEmail><![CDATA[false]]></au_sendEmail>
-        <au_email><![CDATA[di@testing.com]]></au_email>
+        <PARTNER_OWNER><![CDATA[null]]></PARTNER_OWNER>
         <au_id><![CDATA[192168001205130027722316300009]]></au_id>
-        <au_creationDate><![CDATA[2011-03-16 17:37:03.0]]></au_creationDate>
-        <au_title><![CDATA[]]></au_title>
-        <au_privateKeyPassword><![CDATA[]]></au_privateKeyPassword>
+        <au_country><![CDATA[]]></au_country>
+        <au_comments><![CDATA[null]]></au_comments>
+        <au_phone><![CDATA[]]></au_phone>
+        <au_firstName><![CDATA[diuser]]></au_firstName>
+        <au_entityName><![CDATA[diuser]]></au_entityName>
+        <AU_READ_ONLY_ACCESS><![CDATA[null]]></AU_READ_ONLY_ACCESS>
         <AU_USERPREFRENCES><![CDATA[null]]></AU_USERPREFRENCES>
-        <au_lastLogin><![CDATA[1478672414487]]></au_lastLogin>
-        <au_calendar><![CDATA[]]></au_calendar>
+        <au_address2><![CDATA[]]></au_address2>
+        <au_webDavFolder><![CDATA[abc]]></au_webDavFolder>
+        <au_address1><![CDATA[]]></au_address1>
+        <au_mobile><![CDATA[]]></au_mobile>
+        <LOCKED_TIME><![CDATA[null]]></LOCKED_TIME>
+        <au_primaryGroup><![CDATA[IndigoGroup:192168001205130027715287200007]]></au_primaryGroup>
+        <AU_LASTMESSAGEVIEWED><![CDATA[null]]></AU_LASTMESSAGEVIEWED>
+        <au_creationDate><![CDATA[2011-03-16 17:37:03.0]]></au_creationDate>
+        <au_lastName><![CDATA[diuser]]></au_lastName>
+        <au_email><![CDATA[di@testing.com]]></au_email>
+        <au_comment><![CDATA[]]></au_comment>
+        <au_modifiedDate><![CDATA[2011-03-25 11:09:53.0]]></au_modifiedDate>
+        <au_userPermission><![CDATA[7]]></au_userPermission>
         <au_lastPasswordChanged><![CDATA[2011-03-25 11:09:53.0]]></au_lastPasswordChanged>
+        <au_modifiedBy><![CDATA[IndigoUser:192168001205130027722316300009]]></au_modifiedBy>
+        <au_calendar><![CDATA[]]></au_calendar>
+        <au_password><![CDATA[FTAi2rgMkUynuvpqpy5EqQ==]]></au_password>
+        <au_state><![CDATA[]]></au_state>
+        <au_projectOwner><![CDATA[null]]></au_projectOwner>
+        <au_previousVersion><![CDATA[]]></au_previousVersion>
+        <au_groupOwner><![CDATA[IndigoGroup:127000000001107055548721600002]]></au_groupOwner>
+        <au_zip><![CDATA[]]></au_zip>
+        <au_colleague><![CDATA[]]></au_colleague>
+        <au_userType><![CDATA[developer]]></au_userType>
+        <au_privateKeyPassword><![CDATA[]]></au_privateKeyPassword>
+        <au_manager><![CDATA[]]></au_manager>
+        <au_orgName><![CDATA[]]></au_orgName>
+        <au_viewLevel><![CDATA[null]]></au_viewLevel>
+        <AU_UNIQUEIDENTIFIER><![CDATA[null]]></AU_UNIQUEIDENTIFIER>
+        <au_description><![CDATA[diuser]]></au_description>
+        <au_revision><![CDATA[null]]></au_revision>
+        <au_city><![CDATA[]]></au_city>
+        <au_permissionMask><![CDATA[777]]></au_permissionMask>
+        <au_orgUrl><![CDATA[]]></au_orgUrl>
+        <au_sendEmail><![CDATA[false]]></au_sendEmail>
+        <au_title><![CDATA[]]></au_title>
+        <au_lastLogin><![CDATA[1478672414487]]></au_lastLogin>
+        <au_activeVersion><![CDATA[true]]></au_activeVersion>
+        <au_userOwner><![CDATA[IndigoUser:127000000001107055536473900001]]></au_userOwner>
     </AU_USERS>
     <columnInfo dbtype="0">
         <column name="au_id" type="12"/>
